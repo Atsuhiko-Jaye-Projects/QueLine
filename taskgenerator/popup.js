@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function generateFormat() {
-    var prefix = "MoriON-";
+    var prefix = "Hrvst_Hub-";
     var randomNumber = Math.floor(Math.random() * 90000) + 10000;
     return prefix + randomNumber;
 }
