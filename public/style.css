@@ -1,0 +1,151 @@
+body {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  min-height: 100vh; 
+  margin: 0; 
+  background: url('images/background.png') no-repeat center center / cover;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+.container {
+  margin: 0px; 
+  padding: 50px;
+}
+
+.form-box {
+  width: 90%;
+  height: 100%;
+  max-width: 460px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin-left: 700px;
+
+}
+
+.form-box img {
+  display: block;
+  margin: 0 auto 20px; 
+  max-width: 120px; 
+  height: auto;        
+}
+
+h2 {
+  font-size: 25px;
+  color: #003968;
+  text-align: center;
+  margin-bottom: -10px;
+   font-weight: normal;
+  margin-right: 50px;
+}
+
+h1{
+  font-size: 18px;
+  color: #003968;
+  text-align: center;
+  margin-bottom: 35px;
+  font-weight: normal;
+}
+
+input {
+  width: 90%;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+button[name="send-otp"] {
+   width: 20%;
+   height: 5px;
+  padding: 12px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 2px solid #071c42 ;
+  cursor: pointer;
+  font-size: 8px;
+  color: #003968;
+  font-weight: bold;
+  margin-bottom: 20px;
+  transition: 0.5s;
+
+   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+send-otp:hover{
+  background: #ffffff;
+}
+button{
+  width: 90%;
+  padding: 12px;
+  background:#f2bc39;
+  border-radius: 6px;
+border: none;
+cursor: pointer;
+font-size: 18px;
+color: #ffffff;
+font-weight: bold;
+margin-bottom: 10px;
+transition: 0.5s;
+justify-content: left;
+margin-left: 20px;
+}
+
+button:hover {
+  background: #ffffff;
+}
+
+p {
+font-size: 10px;
+text-align: right;
+margin-bottom: 45px;
+margin-top: 0px;
+margin-right: 22px;
+}
+
+p a{
+  color: #003968;
+  text-decoration: none;
+}
+.page-title {
+  position: absolute;
+  top: 200px;
+  left: 30px;
+}
+
+.page-title h2 {
+  font-size: 50px;
+  color: #ffffff;
+  margin: 0;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 50px;
+   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.page-titles {
+  position: absolute;
+  top: 260px;
+  left: 30px;
+}
+
+.page-titles h2 {
+  font-size: 50px;
+  color: #f2bc39;
+  margin: 0;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 50px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
