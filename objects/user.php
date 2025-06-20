@@ -11,6 +11,7 @@ class User{
     public $username;
     public $password;
     public $email_address;
+    public $role;
 
 
     public function __construct($db) {
