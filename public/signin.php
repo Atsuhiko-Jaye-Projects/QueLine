@@ -37,14 +37,14 @@ if ($_POST) {
 			header("Location:{$home_url}admin/index.php?action=login_success");
 		}
 		else if($user->role=='DH_cashier') {
-			header("Location:{$home_url}department/department_head/department_head_cashier/index.php?action=login_success");
+			header("Location:{$home_url}/department/department_head/department_head_cashier/index.php?action=login_success");
     
 		}else{
 			header("Location:{$home_url}student/index.php?action=login_success");
 		}
 	}else{
 		$access_denied = true;
-	}
+	} 
 
 }
 
