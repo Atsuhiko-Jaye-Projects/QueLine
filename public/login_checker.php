@@ -51,7 +51,7 @@ else if (isset($_SESSION['role']) && $_SESSION['role'] == "dep_staff_mis") {
 // redirect department head
 else if (isset($_SESSION['role']) && $_SESSION['role'] == "dep_staff_admission") {
     header("Location: {$home_url}department/dep_staff_admission/index.php?action=logged_in_as_dep_staff_admission");
-    exit;
+        exit;
 }
 
 // If login is required but user is not logged in
