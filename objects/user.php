@@ -10,8 +10,10 @@ class User{
     public $firstname;
     public $username;
     public $password;
+    public $mobile_number;
     public $email_address;
     public $role;
+    public $user_type;
 
 
     public function __construct($db) {
@@ -20,7 +22,7 @@ class User{
 
  function credentialExists() {
     // SQL query to check for existing username
-    $query = "SELECT id, firstname, mobile_number, address, role, email_address, password, status
+    $query = "SELECT id, firstname, mobile_number, address, user_type, email_address, password, status
               FROM " . $this->table_name . "
               WHERE username = ?
               LIMIT 1";
@@ -46,7 +48,7 @@ class User{
         $this->firstname = $row['firstname'];
         $this->mobile_number = $row['mobile_number'];
         $this->address = $row['address'];
-        $this->role = $row['role'];
+        $this->user_type = $row['user_type'];
         $this->email_address = $row['email_address'];
         $this->password = $row['password'];
         $this->status = $row['status'];

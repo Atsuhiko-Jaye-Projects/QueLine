@@ -3,10 +3,11 @@
 error_reporting(E_ALL);
 // start php session
 session_start();
+print_r($_SESSION);
 // set your default time-zone
 date_default_timezone_set('Asia/Manila');
 // home page url
-$home_url="http://localhost/queline/public";
+$home_url="http://localhost/queline/";
 // page given in URL parameter, default page is one
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 // set number of records per page

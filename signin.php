@@ -1,17 +1,19 @@
 <?php
-include_once "../config/core.php";
+include_once "config/core.php";
 
 $page_title = "Sign in";
 include_once "layout_head.php";
 
-$require_login=false;
+
 include_once "login_checker.php";
+$require_login=false;
+
 // default to false
 $access_denied=false;
 
 if ($_POST) {
-	include_once '../config/database.php';
-	include_once '../objects/user.php';
+	include_once 'config/database.php';
+	include_once 'objects/user.php';
 
 	$database = new Database();
 	$db = $database->getConnection();
@@ -31,22 +33,23 @@ if ($_POST) {
 		$_SESSION['user_id'] = $user->id;
 		$_SESSION['firstname'] = $user->firstname;
 		$_SESSION['lastname'] = $user->lastname;
-		$_SESSION['contact_number'] = $user->contact_number;
+		$_SESSION['mobile_number'] = $user->mobile_number;
+		
 
-		if ($user->role=='Admin') {
+		if ($user->user_type=='Admin') {
 			header("Location:{$home_url}admin/index.php?action=login_success");
 		}
-		else if($user->role=='DH_cashier') {
+		else if($user->user_type=='DH_cashier') {
+			header("Location:{$home_url}department/department_head/department_head_cashier/index.php?action=logged_in_success_DHCs");
+			exit;
+    
+		}else if($user->user_type=='DH_MIS') {
 			header("Location:{$home_url}/department/department_head/department_head_cashier/index.php?action=login_success");
-    
-		}else if($user->role=='DH_MIS') {
-			header("Location:{$home_url}/department/department_head/department_head_cashier/index.php?action=login_success");
-    
-		}
-    
-    else{
+			
+		}else{
 			header("Location:{$home_url}student/index.php?action=login_success");
 		}
+
 	}else{
 		$access_denied = true;
 	} 

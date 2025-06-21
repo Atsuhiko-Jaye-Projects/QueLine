@@ -1,19 +1,3 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Queuing Management System</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-  <link href="./admin.css" rel="stylesheet">
-</head>
-<body>
-   <style>
-  body {
-    background: none;
-  }
-</style>
-<div class="containers">
 <div class="sidebar">
     <img src="images/Logo.png">
     <input type="radio" name="nav" id="home" class="nav-radio" checked>
@@ -109,12 +93,3 @@
   </div>
   <div class="line">
   </div>
-
-  <div class="main-content">
-    <h1>Welcome to My Website</h1>
-    <p>This is the main content area.</p>
-  </div>
-
-</div>
-</body>
-</html>
