@@ -8,7 +8,7 @@ if ($action == "not_yet_logged_in") {
 }
 
 else if($action=='please_login'){
-    echo "<div class='alert alert-info'>";
+    echo "<div class='alert alert-info' id='alert_message'>";
         echo "<strong>Please login to access that page.</strong>";
     echo "</div>";
 }
