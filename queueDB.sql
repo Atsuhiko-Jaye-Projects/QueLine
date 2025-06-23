@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 22, 2025 at 02:14 PM
+-- Generation Time: Jun 19, 2025 at 02:44 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `quedb`
+-- Database: `queueDB`
 --
 
 -- --------------------------------------------------------
@@ -48,13 +48,6 @@ CREATE TABLE `counters` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `counters`
---
-
-INSERT INTO `counters` (`id`, `counter_name`, `is_active`, `created_at`) VALUES
-(1, 'counter 1', 1, '2025-06-20 10:08:05');
-
 -- --------------------------------------------------------
 
 --
@@ -79,13 +72,6 @@ CREATE TABLE `departments` (
   `name` varchar(100) DEFAULT NULL,
   `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `departments`
---
-
-INSERT INTO `departments` (`id`, `name`, `description`) VALUES
-(1, 'cashier', 'bayadan ng utang');
 
 -- --------------------------------------------------------
 
@@ -316,28 +302,19 @@ CREATE TABLE `transactions` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `counter_id` int(11) DEFAULT NULL,
-  `department_id` int(11) DEFAULT NULL,
-  `lastname` varchar(200) DEFAULT NULL,
-  `firstname` varchar(200) NOT NULL,
-  `user_type` varchar(50) DEFAULT NULL,
+  `full_name` varchar(100) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `email_address` varchar(200) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `password_hash` text DEFAULT NULL,
   `mobile_number` varchar(20) DEFAULT NULL,
   `address` text DEFAULT NULL,
+  `role` varchar(50) DEFAULT NULL,
+  `department_id` int(11) DEFAULT NULL,
+  `counter_id` int(11) DEFAULT NULL,
   `status` tinyint(1) DEFAULT 1,
-  `profile_photo` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `profile_photo` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `counter_id`, `department_id`, `lastname`, `firstname`, `user_type`, `username`, `password`, `email_address`, `mobile_number`, `address`, `status`, `profile_photo`, `created_at`) VALUES
-(1, 1, 1, 'uchiha', 'sarada', 'dept_head_registrar', 'sarada@konoha.com', '$2a$12$afqVNeqI4CfcoZ9dyt9gIO7w6RKh.leuIB8dyv0YRESO3dgdzIcwe', 'sarada@konoha.com', '09999635031', 'konoha number 40', 1, NULL, '2025-06-20 10:10:26'),
-(3, 1, 1, 'Jaye', 'Alexis', 'Admin', 'DHA@gmail.com', '$2a$12$afqVNeqI4CfcoZ9dyt9gIO7w6RKh.leuIB8dyv0YRESO3dgdzIcwe', 'alexis@jaye.com', '09999635031', 'konoha number 40', 1, NULL, '2025-06-20 10:10:26');
 
 --
 -- Indexes for dumped tables
@@ -476,7 +453,7 @@ ALTER TABLE `transactions`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
-  ADD UNIQUE KEY `email` (`email_address`),
+  ADD UNIQUE KEY `email` (`email`),
   ADD KEY `department_id` (`department_id`),
   ADD KEY `counter_id` (`counter_id`);
 
@@ -494,7 +471,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `counters`
 --
 ALTER TABLE `counters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `data_retention_policy`
@@ -506,7 +483,7 @@ ALTER TABLE `data_retention_policy`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `department_videos`
@@ -596,7 +573,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

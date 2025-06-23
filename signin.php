@@ -63,7 +63,7 @@ if ($_POST) {
 
         <?php include_once 'alert_message.php'; ?>
 
-        <img src="images/Logo.png" alt="Logo">
+        <img src="libs/images/Logo.png" alt="Logo">
         <h2>Welcome Back!</h2>
         <h1>Please enter your details to login</h1>
 

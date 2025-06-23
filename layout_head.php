@@ -6,7 +6,7 @@
  <title><?php echo $page_title; ?></title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 <link href="../../src/output.css" rel="stylesheet">
-  <link href="./style.css" rel="stylesheet">
+  <link href="libs/css/style.css" rel="stylesheet">
 </head>
 <body>
     <div class="page-title">
