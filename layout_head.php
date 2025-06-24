@@ -24,7 +24,7 @@
         echo "<div class='FP-container'>";
         echo "<div class='forgot-pass-form-box' id='forgot-password-form'>";
 
-      }else if ($page_title =="QQMS-Sign-in") {
+      }else if ($page_title =="OQMS-Sign-in") {
         echo "<div class='signin-container'>";
         echo "<div class='signin-form-box' id='signin-form'>";
       }

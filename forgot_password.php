@@ -31,6 +31,17 @@ if ($_POST) {
 		echo "<div class='forgot-alert-message-info'>";
 			echo "We've sent and reset link to your Email.";
 		echo "</div>";
+
+echo "<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var btn = document.getElementById('sendResetBtn');
+			if (btn) {
+				btn.disabled = true;
+				btn.innerText = 'Link Sent';
+			}
+		});
+		</script>";
+
 		
 	}else{
 		echo "<div class='forgot-alert-message-error'>";
@@ -55,7 +66,7 @@ if ($_POST) {
     <input type="email" name="email_address" placeholder="Enter Email address" required>
     <!-- <input type="password" name="password" placeholder="Enter password" required> -->
     <p>Already have Account? <a href="signin.php">SIGN IN!</a></p>
-    <button type="submit">Send reset link</button>
+    <button type="submit" id="sendResetBtn">Send reset link</button>
 </form>
 </div>
 </div>

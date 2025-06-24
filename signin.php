@@ -1,7 +1,7 @@
 <?php
 include_once "config/core.php";
 
-$page_title = "QQMS-Sign-in";
+$page_title = "OQMS-Sign-in";
 include_once "layout_head.php";
 
 
@@ -70,7 +70,7 @@ if ($_POST) {
 			<input type="password" name="password" placeholder="Enter password" required>
 			<button type="button" name="send-otp">SEND OTP</button> <!-- Consider implementing OTP -->
 			<p>Having Password Issues? <a href="forgot_password.php">HERE</a></p>
-			<button type="submit" name="login">Login</button>
+			<button type="submit" name="login" >Login</button>
 		</form>
 	</div>
 </div>
