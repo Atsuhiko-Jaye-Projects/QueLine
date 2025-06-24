@@ -109,10 +109,10 @@ if (isset($require_login) && $require_login === true) {
         exit();
     }
 
-    // Page-specific access check
-    if (isset($isAccessible) && !$isAccessible) {
-        header("Location: {$home_url}user/index.php?action=access_denied");
-        exit();
-    }
+    // // Page-specific access check
+    // if (isset($isAccessible) && !$isAccessible) {
+    //     header("Location: {$home_url}user/index.php?action=access_denied");
+    //     exit();
+    // }
 }
 ?>

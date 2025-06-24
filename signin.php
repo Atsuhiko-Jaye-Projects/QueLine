@@ -1,7 +1,7 @@
 <?php
 include_once "config/core.php";
 
-$page_title = "Sign in";
+$page_title = "QQMS-Sign-in";
 include_once "layout_head.php";
 
 
@@ -57,24 +57,22 @@ if ($_POST) {
 }
 
 ?>
+	<?php include_once 'alert_message.php'; ?>
 
-<div class="container">
-    <div class="form-box" id="login-form">
+		<div class='signin-header'>
+			<img src="libs/images/Logo.png" alt="Logo">
+			<p>Welcome Back to OQMC!</p>
+			<p>Sign in to access your account.</p>
+		</div>
 
-        <?php include_once 'alert_message.php'; ?>
-
-        <img src="libs/images/Logo.png" alt="Logo">
-        <h2>Welcome Back!</h2>
-        <h1>Please enter your details to login</h1>
-
-        <form class='form-signin' action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method='post'>
-            <input type="email" name="username" placeholder="Enter Username" required>
-            <button type="button" name="send-otp">SEND OTP</button> <!-- Consider implementing OTP -->
-            <input type="password" name="password" placeholder="Enter password" required>
-            <p><a href="#">Forgot Password?</a></p>
-            <button type="submit" name="login">Login</button>
-        </form>
-    </div>
+		<form class='form-signin' action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method='post'>
+			<input type="email" name="username" placeholder="Enter Username" required>
+			<input type="password" name="password" placeholder="Enter password" required>
+			<button type="button" name="send-otp">SEND OTP</button> <!-- Consider implementing OTP -->
+			<p>Having Password Issues? <a href="forgot_password.php">HERE</a></p>
+			<button type="submit" name="login">Login</button>
+		</form>
+	</div>
 </div>
 
 <?php include_once "layout_foot.php";?>

@@ -16,3 +16,18 @@
   <div class="page-titles">
     <h2>MANAGEMENT SYSTEM</h2>
   </div>
+
+  <div class="container">
+    <?php 
+
+      if ($page_title == "QQMS-Forgot Password") {
+        echo "<div class='FP-container'>";
+        echo "<div class='forgot-pass-form-box' id='forgot-password-form'>";
+
+      }else if ($page_title =="QQMS-Sign-in") {
+        echo "<div class='signin-container'>";
+        echo "<div class='signin-form-box' id='signin-form'>";
+      }
+    
+    
+    ?>
