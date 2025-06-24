@@ -28,6 +28,14 @@
         echo "<div class='signin-container'>";
         echo "<div class='signin-form-box' id='signin-form'>";
       }
+
+      else if ($page_title =="OQMS-Sign-up") {
+        echo "<div class='signin-container'>";
+        echo "<div class='signin-form-box' id='signin-form'>";
+      }
+
+
+      
     
     
     ?>

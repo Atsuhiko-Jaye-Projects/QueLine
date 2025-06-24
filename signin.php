@@ -22,6 +22,7 @@ if ($_POST) {
 	//check if contact number and password is in the database.
 
 	$user->username = $_POST['username'];
+	$user->contact_number = $_POST['username'];
 	$user->password = $_POST['password'];
 	//check if the contact number is exists and last name is exists
 	$credential_exists = $user->credentialExists();
@@ -33,7 +34,7 @@ if ($_POST) {
 		$_SESSION['user_id'] = $user->id;
 		$_SESSION['firstname'] = $user->firstname;
 		$_SESSION['lastname'] = $user->lastname;
-		$_SESSION['mobile_number'] = $user->mobile_number;
+		$_SESSION['contact_number'] = $user->contact_number;
 		
 
 		if ($user->user_type=='Admin') {
@@ -66,11 +67,11 @@ if ($_POST) {
 		</div>
 
 		<form class='form-signin' action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method='post'>
-			<input type="email" name="username" placeholder="Enter Username" required>
+			<input type="input" name="username" placeholder="Enter Username" required>
 			<input type="password" name="password" placeholder="Enter password" required>
 			<button type="button" name="send-otp">SEND OTP</button> <!-- Consider implementing OTP -->
 			<p>Having Password Issues? <a href="forgot_password.php">HERE</a></p>
-			<button type="submit" name="login" >Login</button>
+			<button type="submit" name="login" >Sign In</button>
 		</form>
 	</div>
 </div>

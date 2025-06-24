@@ -10,7 +10,7 @@ class User {
     public $firstname;
     public $username;
     public $password;
-    public $mobile_number;
+    public $contact_number;
     public $email_address;
     public $role;
     public $user_type;
@@ -22,15 +22,16 @@ class User {
     }
 
     function credentialExists() {
-        $query = "SELECT id, firstname, mobile_number, address, user_type, email_address, password, status
+        $query = "SELECT id, firstname, contact_number, address, user_type, email_address, password, status
                   FROM " . $this->table_name . "
-                  WHERE username = ?
+                  WHERE username = ? OR contact_number = ?
                   LIMIT 1";
 
         $stmt = $this->conn->prepare($query);
 
         $this->username = htmlspecialchars(strip_tags($this->username));
         $stmt->bindParam(1, $this->username);
+        $stmt->bindParam(2, $this->contact_number);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -38,7 +39,7 @@ class User {
 
             $this->id             = $row['id'];
             $this->firstname      = $row['firstname'];
-            $this->mobile_number  = $row['mobile_number'];
+            $this->contact_number  = $row['contact_number'];
             $this->address        = $row['address'];
             $this->user_type      = $row['user_type'];
             $this->email_address  = $row['email_address'];
@@ -77,8 +78,41 @@ class User {
 
             return true;
         }
-
         return false;
+    }
+
+    function isEmailExists(){
+        
+        $query = "SELECT id FROM " . $this->table_name . " WHERE email_address = ? LIMIT 1";
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->email_address = htmlspecialchars(strip_tags($this->email_address));
+        $stmt->bindParam(1, $this->email_address);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function isContactExists(){
+        
+        $query = "SELECT id FROM " . $this->table_name . " WHERE contact_number = ? LIMIT 1";
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->email_address = htmlspecialchars(strip_tags($this->contact_number));
+        $stmt->bindParam(1, $this->contact_number);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return true;
+        }else{
+            return false;
+        }
     }
 }
 ?>
