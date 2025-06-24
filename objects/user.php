@@ -11,7 +11,7 @@ class User {
     public $username;
     public $password;
     public $contact_number;
-    public $email_address;
+    public $email;
     public $role;
     public $user_type;
     public $address;
@@ -83,12 +83,12 @@ class User {
 
     function isEmailExists(){
         
-        $query = "SELECT id FROM " . $this->table_name . " WHERE email_address = ? LIMIT 1";
+        $query = "SELECT id FROM " . $this->table_name . " WHERE email = ? LIMIT 1";
 
         $stmt = $this->conn->prepare($query);
 
-        $this->email_address = htmlspecialchars(strip_tags($this->email_address));
-        $stmt->bindParam(1, $this->email_address);
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $stmt->bindParam(1, $this->email);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -113,6 +113,46 @@ class User {
         }else{
             return false;
         }
+    }
+
+    function createAccount(){
+
+        $query = "INSERT INTO " . $this->table_name . " 
+    (email, contact_number, lastname, password, access_code) 
+    VALUES (:email, :contact_number, :lastname, :password, :access_code)";
+
+        // $query = "INSERT INTO 
+        //     " . $this->table_name . " 
+        //     SET
+        //     email_address=:email_address,
+        //     contact_number=:contact_number,
+        //     lastname=:lastname,
+        //     password=:password,
+        //     access_code=:access_code";
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->contact_number = htmlspecialchars(strip_tags($this->contact_number));
+        $this->lastname = htmlspecialchars(strip_tags($this->lastname));
+        $this->password = htmlspecialchars(strip_tags($this->password));
+        $this->access_code = htmlspecialchars(strip_tags($this->access_code));
+        var_dump($this->email_address);
+
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':contact_number', $this->contact_number);
+        $stmt->bindParam(':lastname', $this->lastname);
+        $stmt->bindParam(':password', $this->password);
+        $stmt->bindParam(':access_code', $this->access_code);
+        var_dump($this->email);
+
+        if ($stmt->execute()) {
+           return true;
+        }
+        else{
+            return false;
+        }
+
     }
 }
 ?>

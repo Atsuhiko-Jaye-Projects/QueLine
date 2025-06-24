@@ -1,13 +1,7 @@
 <?php
 include_once "config/core.php";
 
-include_once 'config/database.php';
-include_once 'objects/user.php';
 
-$database = new Database();
-$db = $database->getConnection();
-
-$user = new User($db);
 
 $page_title = "OQMS-Sign-up";
 include_once "layout_head.php";
@@ -22,10 +16,28 @@ $access_denied=false;
 
 
 if ($_POST) {
-    
+
+	include_once 'config/database.php';
+	include_once 'objects/user.php';
+
+	$database = new Database();
+	$db = $database->getConnection();
+
+	$user = new User($db);
+	include_once "utils/utils.php";
+
+	$utils = new Utils;
+
+	
+	$access_code = $utils->getToken();
+
     $user->contact_number = $_POST['contact_number'];
-    $user->email_address = $_POST['email_address'];
+    
     $user->lastname = $_POST['lastname'];
+    $user->email= $_POST['email'];
+    $user->access_code = $access_code;
+    var_dump($user->email);
+
 
     if ($user->isEmailExists()){
         echo "<div class='forgot-alert-message-error'>";
@@ -37,6 +49,13 @@ if ($_POST) {
     if ($user->isContactExists()){
         echo "<div class='forgot-alert-message-error'>";
             echo "Contact No. is already taken.";
+			// echo "Email address.is already taken.";
+		echo "</div>";
+    }
+    else{
+    	$user->createAccount();
+    	echo "<div class='forgot-alert-message-info'>";
+            echo "Welcome to OQMC! Your account is ready.";
 			// echo "Email address.is already taken.";
 		echo "</div>";
     }
@@ -55,7 +74,7 @@ if ($_POST) {
 
 		<form class='form-signin' action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method='post'>
 			<input type="tel" name="contact_number" placeholder="Enter Cellphone No." pattern="09[0-9]{9}" maxlength="11" required>
-			<input type="email" name="email_address" placeholder="Enter Email Address" required>
+			<input type="email" name="email" placeholder="Enter Email Address" required>
             <input type="input" name="lastname" placeholder="Enter Last Name" required>
 			<button type="button" name="send-otp">SEND OTP</button> <!-- Consider implementing OTP -->
 			<p>Already have Account? <a href="signin.php">SIGN IN!</a></p>
