@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 20, 2025 at 12:39 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Host: localhost
+-- Generation Time: Jun 22, 2025 at 02:14 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -320,7 +320,7 @@ CREATE TABLE `users` (
   `department_id` int(11) DEFAULT NULL,
   `lastname` varchar(200) DEFAULT NULL,
   `firstname` varchar(200) NOT NULL,
-  `role` varchar(50) DEFAULT NULL,
+  `user_type` varchar(50) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `email_address` varchar(200) DEFAULT NULL,
@@ -335,8 +335,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `counter_id`, `department_id`, `lastname`, `firstname`, `role`, `username`, `password`, `email_address`, `mobile_number`, `address`, `status`, `profile_photo`, `created_at`) VALUES
-(1, 1, 1, 'uchiha', 'sarada', 'student', 'sarada@konoha.com', '$2a$12$afqVNeqI4CfcoZ9dyt9gIO7w6RKh.leuIB8dyv0YRESO3dgdzIcwe', 'sarada@konoha.com', '09999635031', 'konoha number 40', 1, NULL, '2025-06-20 10:10:26');
+INSERT INTO `users` (`id`, `counter_id`, `department_id`, `lastname`, `firstname`, `user_type`, `username`, `password`, `email_address`, `mobile_number`, `address`, `status`, `profile_photo`, `created_at`) VALUES
+(1, 1, 1, 'uchiha', 'sarada', 'dept_head_registrar', 'sarada@konoha.com', '$2a$12$afqVNeqI4CfcoZ9dyt9gIO7w6RKh.leuIB8dyv0YRESO3dgdzIcwe', 'sarada@konoha.com', '09999635031', 'konoha number 40', 1, NULL, '2025-06-20 10:10:26'),
+(3, 1, 1, 'Jaye', 'Alexis', 'Admin', 'DHA@gmail.com', '$2a$12$afqVNeqI4CfcoZ9dyt9gIO7w6RKh.leuIB8dyv0YRESO3dgdzIcwe', 'alexis@jaye.com', '09999635031', 'konoha number 40', 1, NULL, '2025-06-20 10:10:26');
 
 --
 -- Indexes for dumped tables
@@ -595,7 +596,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

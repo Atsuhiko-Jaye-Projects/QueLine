@@ -4,11 +4,11 @@ $action=isset($_GET['action']) ? $_GET['action'] : "";
 //tell user hes not yet logged in
 
 if ($action == "not_yet_logged_in") {
-    echo "<div class='alert alert-danger margin-top-40' role='alert'>Please login.</div>";
+    echo "<div class='signin-alert-message-warning' role='alert'>Welcome! Let’s get you signed in.</div>";
 }
 
 else if($action=='please_login'){
-    echo "<div class='alert alert-info'>";
+    echo "<div class='signin-alert-info' id='alert_message'>";
         echo "<strong>Please login to access that page.</strong>";
     echo "</div>";
 }
@@ -20,9 +20,9 @@ elseif ($action=='email_verified') {
 }
 
 if ($access_denied) {
-    echo "<div class='alert alert-danger margin-top-40' role='alert'>";
-        echo "Access Denied. <br/> <br/>";
-        echo "Contact No. or Last Name is incorrect.";
+    echo "<div class='signin-alert-message-error' role='alert'>";
+        echo "Oops! Something’s Not Right <br/> <br/>";
+        echo "Please double-check your Username or Password.";
     echo "</div>";
 }
 ?>
