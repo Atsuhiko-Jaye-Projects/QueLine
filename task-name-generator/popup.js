@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function generateFormat() {
-    var prefix = "QueLine-";
+    var prefix = "OQMS-";
     var randomNumber = Math.floor(Math.random() * 90000) + 10000;
     return prefix + randomNumber;
 }
