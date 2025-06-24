@@ -1,0 +1,286 @@
+body {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  min-height: 100vh; 
+  margin: 0; 
+  background: url('../images/background.png') no-repeat center center / cover;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+/* sign in form styling */
+.signin-container {
+  margin: 0px; 
+  padding: 50px;
+}
+
+.signin-form-box {
+  width: 90%;
+  height: 100%;
+  max-width: 460px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin-left: 700px;
+  text-align: center;
+}
+
+.signin-header p{
+  font-size: 18px;
+  color: #003968;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.signin-form-box input {
+  width: 75%;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 10px;
+  left: auto;
+}
+
+
+.signin-container img {
+  display: block;
+  margin: 0 auto 20px; 
+  max-width: 120px; 
+  height: auto;        
+}
+
+.signin-form-box button{
+  width: 75%;
+  padding: 12px;
+  background:#f2bc39;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.signin-form-box button:hover {
+  background: #003968;
+  color: #f2bc39;
+}
+
+.signin-form-box .form-signin a{
+  font-size: 15px;
+  color: #f2bc39;
+  font-weight: bold;
+  text-align: center;
+}
+
+.signin-form-box .form-signin p{
+  font-size: 15px;
+  color: #003968;
+  font-weight: bold;
+  text-align: center;
+}
+
+button[name="send-otp"] {
+   width: 20%;
+   height: 5px;
+  padding: 12px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 2px solid #071c42 ;
+  cursor: pointer;
+  font-size: 8px;
+  color: #003968;
+  font-weight: bold;
+  margin-bottom: 20px;
+  transition: 0.5s;
+
+   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+p {
+font-size: 10px;
+text-align: right;
+margin-bottom: 45px;
+margin-top: 0px;
+margin-right: 22px;
+}
+
+p a{
+  color: #003968;
+  text-decoration: none;
+}
+.page-title {
+  position: absolute;
+  top: 200px;
+  left: 30px;
+}
+
+.page-title h2 {
+  font-size: 50px;
+  color: #ffffff;
+  margin: 0;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 50px;
+   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.page-titles {
+  position: absolute;
+  top: 260px;
+  left: 30px;
+}
+
+.page-titles h2 {
+  font-size: 50px;
+  color: #f2bc39;
+  margin: 0;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 50px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+/* forgot password form styling */
+.FP-container{
+  padding: 50px;
+}
+
+.forgot-pass-form-box {
+  padding: 15px;
+  max-width: 500px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.fp-header p{
+  font-size: 18px;
+  color: #003968;
+  font-weight: normal;
+  text-align: center;
+}
+
+.forgot-pass-form-box .form-forgot-sign p{
+  font-size: 15px;
+  color: #003968;
+  font-weight: normal;
+  text-align: center;
+}
+
+.forgot-pass-form-box .form-forgot-sign a{
+  font-size: 15px;
+  color: #f2bc39;
+  font-weight: bold;
+  text-align: center;
+}
+
+.forgot-pass-form-box input {
+  width: 75%;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 10px;
+  left: auto;
+}
+
+.forgot-pass-form-box button{
+  width: 75%;
+  padding: 12px;
+  background:#f2bc39;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.forgot-pass-form-box button:hover {
+  background: #003968;
+  color: #f2bc39;
+}
+
+
+/* alert message info styling */
+
+
+/* forgot password message styling */
+.forgot-alert-message-info{
+  background: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.forgot-alert-message-error{
+  background: #f8d7da;
+  border-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* signin form message styling */
+
+.signin-alert-message-info{
+  background: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.signin-alert-message-error{
+  background: #f8d7da;
+  border-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.signin-alert-info{
+  background: #cce5ff;
+  border-color: #b8daff;
+  color: #004085;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.signin-alert-message-warning{
+  background: #fff3cd;
+  border-color: #ffeeba;
+  color: #856404;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
