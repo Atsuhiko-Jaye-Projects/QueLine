@@ -7,8 +7,9 @@ body {
   background: url('../images/background.png') no-repeat center center / cover;
   color: #333;
   font-family: 'Open Sans', sans-serif;
-
 }
+
+
 
 /* sign in form styling */
 .signin-container {
@@ -285,3 +286,5 @@ p a{
   border-radius: 5px;
   margin-bottom: 10px;
 }
+
+

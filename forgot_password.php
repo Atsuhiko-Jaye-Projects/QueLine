@@ -9,40 +9,35 @@ $require_login=false;
 // default to false
 $access_denied=false;
 
-// include email utils
 
 
 if ($_POST) {
 	include_once 'config/database.php';
 	include_once 'objects/user.php';
+	include_once 'utils/send_email.php';
+	include_once 'utils/utils.php';
 
 	$database = new Database();
 	$db = $database->getConnection();
 
 	$user = new User($db);
+	$sender = new Sender();
+	$utils = new Utils();
+
+	$token = $utils->getToken();
+
 	//check if contact number and password is in the database.
 
-	$user->email_address = $_POST['email_address'];
+	$user->email = $_POST['email'];
 	//check if the contact number is exists and last name is exists
 	$email_address_exists = $user->emailExists();
 
 	if ($email_address_exists) {
-		include_once "utils/send_email.php";
-		echo "<div class='forgot-alert-message-info'>";
-			echo "We've sent and reset link to your Email.";
-		echo "</div>";
+		$sender->sendResetPassword($user->email, $user->lastname, $token);
+		// echo "<div class='forgot-alert-message-info'>";
+		// 	echo "We've sent and reset link to your Email.";
+		// echo "</div>";
 
-echo "<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			var btn = document.getElementById('sendResetBtn');
-			if (btn) {
-				btn.disabled = true;
-				btn.innerText = 'Link Sent';
-			}
-		});
-		</script>";
-
-		
 	}else{
 		echo "<div class='forgot-alert-message-error'>";
 			echo "No Email address found.";
@@ -63,7 +58,7 @@ echo "<script>
 </div>
 
 <form class='form-forgot-sign' action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method='post'>
-    <input type="email" name="email_address" placeholder="Enter Email address" required>
+    <input type="email" name="email" placeholder="Enter Email address" required>
     <!-- <input type="password" name="password" placeholder="Enter password" required> -->
     <p>Already have Account? <a href="signin.php">SIGN IN!</a></p>
     <button type="submit" id="sendResetBtn">Send reset link</button>

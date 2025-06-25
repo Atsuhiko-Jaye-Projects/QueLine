@@ -22,7 +22,7 @@ class User {
     }
 
     function credentialExists() {
-        $query = "SELECT id, firstname, contact_number, address, user_type, email_address, password, status
+        $query = "SELECT id, firstname, contact_number, address, user_type, email, password, status
                   FROM " . $this->table_name . "
                   WHERE username = ? OR contact_number = ?
                   LIMIT 1";
@@ -42,7 +42,7 @@ class User {
             $this->contact_number  = $row['contact_number'];
             $this->address        = $row['address'];
             $this->user_type      = $row['user_type'];
-            $this->email_address  = $row['email_address'];
+            $this->email          = $row['email'];
             $this->password       = $row['password'];
             $this->status         = $row['status'];
 
@@ -53,15 +53,15 @@ class User {
     }
 
     function emailExists() {
-        $query = "SELECT id, firstname, mobile_number, address, user_type, email_address, password, status
+        $query = "SELECT id, firstname, contact_number, address, user_type,email, password, status
                   FROM " . $this->table_name . "
-                  WHERE email_address = ?
+                  WHERE email = ?
                   LIMIT 1";
 
         $stmt = $this->conn->prepare($query);
 
-        $this->email_address = htmlspecialchars(strip_tags($this->email_address));
-        $stmt->bindParam(1, $this->email_address);
+        $this->email_address = htmlspecialchars(strip_tags($this->email));
+        $stmt->bindParam(1, $this->email);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -69,10 +69,10 @@ class User {
 
             $this->id             = $row['id'];
             $this->firstname      = $row['firstname'];
-            $this->mobile_number  = $row['mobile_number'];
+            $this->contact_number = $row['contact_number'];
             $this->address        = $row['address'];
             $this->user_type      = $row['user_type'];
-            $this->email_address  = $row['email_address'];
+            $this->email          = $row['email'];
             $this->password       = $row['password'];
             $this->status         = $row['status'];
 
@@ -117,18 +117,14 @@ class User {
 
     function createAccount(){
 
-        $query = "INSERT INTO " . $this->table_name . " 
-    (email, contact_number, lastname, password, access_code) 
-    VALUES (:email, :contact_number, :lastname, :password, :access_code)";
-
-        // $query = "INSERT INTO 
-        //     " . $this->table_name . " 
-        //     SET
-        //     email_address=:email_address,
-        //     contact_number=:contact_number,
-        //     lastname=:lastname,
-        //     password=:password,
-        //     access_code=:access_code";
+        $query = "INSERT INTO 
+            " . $this->table_name . " 
+            SET
+            email=:email,
+            contact_number=:contact_number,
+            lastname=:lastname,
+            password=:password,
+            access_code=:access_code";
 
         $stmt = $this->conn->prepare($query);
 
@@ -137,14 +133,12 @@ class User {
         $this->lastname = htmlspecialchars(strip_tags($this->lastname));
         $this->password = htmlspecialchars(strip_tags($this->password));
         $this->access_code = htmlspecialchars(strip_tags($this->access_code));
-        var_dump($this->email_address);
 
         $stmt->bindParam(':email', $this->email);
         $stmt->bindParam(':contact_number', $this->contact_number);
         $stmt->bindParam(':lastname', $this->lastname);
         $stmt->bindParam(':password', $this->password);
         $stmt->bindParam(':access_code', $this->access_code);
-        var_dump($this->email);
 
         if ($stmt->execute()) {
            return true;

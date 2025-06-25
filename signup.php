@@ -36,7 +36,6 @@ if ($_POST) {
     $user->lastname = $_POST['lastname'];
     $user->email= $_POST['email'];
     $user->access_code = $access_code;
-    var_dump($user->email);
 
 
     if ($user->isEmailExists()){

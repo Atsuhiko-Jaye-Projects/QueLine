@@ -37,6 +37,8 @@ if ($_POST) {
 		$_SESSION['contact_number'] = $user->contact_number;
 		
 
+		
+
 		if ($user->user_type=='Admin') {
 			header("Location:{$home_url}admin/index.php?action=login_success");
 		}
@@ -48,7 +50,7 @@ if ($_POST) {
 			header("Location:{$home_url}/department/department_head/department_head_MIS/index.php?action=login_success");
 			
 		}else{
-			header("Location:{$home_url}student/index.php?action=login_success");
+			// header("Location:{$home_url}student/index.php?action=login_success");
 		}
 
 	}else{
@@ -72,6 +74,7 @@ if ($_POST) {
 			<button type="button" name="send-otp">SEND OTP</button> <!-- Consider implementing OTP -->
 			<p>Having Password Issues? <a href="forgot_password.php">HERE</a></p>
 			<button type="submit" name="login" >Sign In</button>
+			<?php include_once "otp_form.php";?>
 		</form>
 	</div>
 </div>
