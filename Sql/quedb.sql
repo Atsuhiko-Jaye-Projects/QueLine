@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 22, 2025 at 02:14 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 7.4.33
+-- Host: 127.0.0.1
+-- Generation Time: Jun 25, 2025 at 07:10 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -172,10 +172,11 @@ CREATE TABLE `notification_settings` (
 
 CREATE TABLE `otp_verification` (
   `id` int(11) NOT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `otp_code` varchar(10) DEFAULT NULL,
+  `email_address` varchar(255) DEFAULT NULL,
+  `otp_code` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `verified` tinyint(1) DEFAULT 0
+  `verified` tinyint(1) DEFAULT 0,
+  `is_used` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -323,21 +324,22 @@ CREATE TABLE `users` (
   `user_type` varchar(50) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `email_address` varchar(200) DEFAULT NULL,
-  `mobile_number` varchar(20) DEFAULT NULL,
+  `contact_number` varchar(20) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
   `address` text DEFAULT NULL,
   `status` tinyint(1) DEFAULT 1,
   `profile_photo` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `access_code` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `counter_id`, `department_id`, `lastname`, `firstname`, `user_type`, `username`, `password`, `email_address`, `mobile_number`, `address`, `status`, `profile_photo`, `created_at`) VALUES
-(1, 1, 1, 'uchiha', 'sarada', 'dept_head_registrar', 'sarada@konoha.com', '$2a$12$afqVNeqI4CfcoZ9dyt9gIO7w6RKh.leuIB8dyv0YRESO3dgdzIcwe', 'sarada@konoha.com', '09999635031', 'konoha number 40', 1, NULL, '2025-06-20 10:10:26'),
-(3, 1, 1, 'Jaye', 'Alexis', 'Admin', 'DHA@gmail.com', '$2a$12$afqVNeqI4CfcoZ9dyt9gIO7w6RKh.leuIB8dyv0YRESO3dgdzIcwe', 'alexis@jaye.com', '09999635031', 'konoha number 40', 1, NULL, '2025-06-20 10:10:26');
+INSERT INTO `users` (`id`, `counter_id`, `department_id`, `lastname`, `firstname`, `user_type`, `username`, `password`, `contact_number`, `email`, `address`, `status`, `profile_photo`, `created_at`, `access_code`) VALUES
+(1, 1, 1, 'uchiha', 'sarada', 'dept_staff_cashier', 'sarada@konoha.com', '$2a$12$afqVNeqI4CfcoZ9dyt9gIO7w6RKh.leuIB8dyv0YRESO3dgdzIcwe', '09533307696', '', 'konoha number 40', 1, NULL, '2025-06-20 10:10:26', ''),
+(19, NULL, NULL, 'gascon', '', NULL, NULL, '', '09533307692', 'ajcodalify@gmail.com', NULL, 1, NULL, '2025-06-24 23:25:30', 'UsQhGEdx1Cx22w0n8dWSSsuYUsht9EWj');
 
 --
 -- Indexes for dumped tables
@@ -476,7 +478,6 @@ ALTER TABLE `transactions`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
-  ADD UNIQUE KEY `email` (`email_address`),
   ADD KEY `department_id` (`department_id`),
   ADD KEY `counter_id` (`counter_id`);
 
@@ -596,7 +597,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
