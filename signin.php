@@ -22,7 +22,6 @@ if ($_POST) {
 	//check if contact number and password is in the database.
 
 	$user->username = $_POST['username'];
-	$user->contact_number = $_POST['username'];
 	$user->password = $_POST['password'];
 	//check if the contact number is exists and last name is exists
 	$credential_exists = $user->credentialExists();
@@ -34,23 +33,61 @@ if ($_POST) {
 		$_SESSION['user_id'] = $user->id;
 		$_SESSION['firstname'] = $user->firstname;
 		$_SESSION['lastname'] = $user->lastname;
-		$_SESSION['contact_number'] = $user->contact_number;
-		
-
+		$_SESSION['mobile_number'] = $user->mobile_number;
 		
 
 		if ($user->user_type=='Admin') {
-			header("Location:{$home_url}admin/index.php?action=login_success");
+			header("Location:{$home_url}users/admin/index.php?action=login_success");
 		}
 		else if($user->user_type=='department_head_cashier') {
-			header("Location:{$home_url}department/department_head/department_head_cashier/index.php?action=logged_in_success_DHCs");
+			header("Location:{$home_url}users/department_head/department_head_cashier/index.php?action=logged_in_success_DHCs");
 			exit;
     
-		}else if($user->user_type=='department_head_MIS') {
-			header("Location:{$home_url}/department/department_head/department_head_MIS/index.php?action=login_success");
-			
-		}else{
-			header("Location:{$home_url}student/index.php?action=login_success");
+		}
+		else if($user->user_type=='department_head_MIS') {
+			header("Location:{$home_url}users/department_head/department_head_MIS/index.php?action=login_success_DHM");
+			exit;		
+		
+		}
+		else if($user->user_type=='department_head_admission') {
+			header("Location:{$home_url}users/department_head/department_head_admission/index.php?action=login_success_DHA");
+			exit;		
+		
+		}
+
+		else if($user->user_type=='department_head_registrar') {
+			header("Location:{$home_url}users/department_head/department_head_admission/index.php?action=login_success_DHR");
+			exit;		
+		
+		}
+		else if($user->user_type=='department_staff_cashier') {
+			header("Location:{$home_url}users/department_head/department_head_cashier/department_staff/index.php?action=login_success_DSC");
+			exit;		
+		
+		}
+		else if($user->user_type=='department_staff_admission') {
+			header("Location:{$home_url}users/department_head/department_head_admission/department_staff/index.php?action=login_success_DSA");
+			exit;		
+		
+		}
+
+		else if($user->user_type=='department_staff_MIS') {
+			header("Location:{$home_url}users/department_head/department_head_MIS/department_staff/index.php?action=login_success_DSM");
+			exit;		
+		
+		}
+
+		else if($user->user_type=='department_staff_registrar') {
+			header("Location:{$home_url}users/department_head/department_head_registrar/department_staff/index.php?action=login_success_DSR");
+			exit;		
+		
+		}
+
+
+
+
+		else{
+			header("Location:{$home_url}users/student/index.php?action=LSS");
 		}
 
 	}else{
@@ -69,11 +106,11 @@ if ($_POST) {
 		</div>
 
 		<form class='form-signin' action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method='post'>
-			<input type="input" name="username" placeholder="Enter Username" required>
+			<input type="email" name="username" placeholder="Enter Username" required>
 			<input type="password" name="password" placeholder="Enter password" required>
 			<button type="button" name="send-otp">SEND OTP</button> <!-- Consider implementing OTP -->
 			<p>Having Password Issues? <a href="forgot_password.php">HERE</a></p>
-			<button type="submit" name="login" >Sign In</button>
+			<button type="submit" name="login" >Login</button>
 		</form>
 	</div>
 </div>
