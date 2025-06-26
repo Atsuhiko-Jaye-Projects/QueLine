@@ -44,13 +44,6 @@ if ($_POST) {
 			header("Location:{$home_url}users/department_head/department_head_cashier/index.php?action=logged_in_success_DHCs");
 			exit;
     
-<<<<<<< HEAD
-		}else if($user->user_type=='department_head_MIS') {
-			header("Location:{$home_url}/department/department_head/department_head_MIS/index.php?action=login_success");
-			
-		}else{
-			header("Location:{$home_url}student/index.php?action=login_success");
-=======
 		}
 		else if($user->user_type=='department_head_MIS') {
 			header("Location:{$home_url}users/department_head/department_head_MIS/index.php?action=login_success_DHM");
@@ -101,7 +94,6 @@ if ($_POST) {
 
 		else{
 			header("Location:{$home_url}users/student/index.php?action=LSS");
->>>>>>> ver12
 		}
 
 	}else{
