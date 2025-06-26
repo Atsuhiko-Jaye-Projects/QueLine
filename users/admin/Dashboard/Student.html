@@ -1,0 +1,365 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./style.css" rel="stylesheet">
+  <title>Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+    }
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+  <!-- Mobile header with menu button -->
+  <header class="bg-[#15294B] text-white flex items-center justify-between px-4 py-3 md:hidden">
+    <button aria-label="Open sidebar" class="text-white focus:outline-none" id="menu-btn">
+      <img alt="Menu icon three horizontal lines" class="w-6 h-6" height="24" src="images/Profile.png" width="24"/>
+    </button>
+    <div class="flex items-center space-x-3">
+      <img alt="Profile icon round photo" class="w-10 h-10 rounded-full object-cover border border-white" height="40" id="mobile-profile-icon" src="images/Profile.png" width="40"/>
+    </div>
+  </header>
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="fixed inset-y-0 left-0 z-30 w-64 bg-[#15294B] border-r-4 border-[#D1B24A] py-6 space-y-4 md:space-y-4 text-white text-xs transform -translate-x-full md:translate-x-0 md:static md:flex md:flex-col md:items-center md:w-20 md:py-6 transition-transform duration-300 ease-in-out" id="sidebar">
+      <img alt="Official seal logo with blue and gold colors" class="w-12 h-12 mx-auto md:mx-0 mt-[-10px] mb-[12px]" height="48" src="images/Logo.png" width="48"/>
+      <nav class="flex flex-col items-center space-y-4 md:space-y-4 text-white text-xs">
+      <a class="flex flex-col items-center space-y-1 md:space-y-1 icon" href="home.html" data-icon="home">
+  <div class="icon-wrapper flex items-center justify-center w-8 h-8 transition-all duration-300 ease-in-out">
+    <img
+      src="images/Home.png"
+      data-white="images/Home.png"
+      data-blue="images/Home Blue.png"
+      class="w-5 h-5 transition-all duration-300 ease-in-out"
+    />
+  </div>
+  <span class="icon-label text-[10px] text-white transition-all duration-300 ease-in-out">Home</span>
+</a>
+<a class="flex flex-col items-center space-y-1 md:space-y-1 icon" href="Queue.html" data-icon="Queue">
+  <div class="icon-wrapper flex items-center mt-[-10px] justify-center w-8 h-8 transition-all duration-300 ease-in-out">
+    <img
+      src="images/Queue.png"
+      data-white="images/Queue.png"
+      data-blue="images/Queue Blue.png"
+      class="w-5 h-5 transition-all duration-300 ease-in-out"
+    />
+  </div>
+  <span class="icon-label text-[10px] text-white transition-all duration-300 ease-in-out">Queue</span>
+</a>
+<a class="flex flex-col items-center space-y-1 md:space-y-1 icon" href="Counter.html" data-icon="counter">
+  <div class="icon-wrapper flex items-center mt-[-10px] justify-center w-8 h-8 transition-all duration-300 ease-in-out">
+    <img
+      src="images/Counter.png"
+      data-white="images/Counter.png"
+      data-blue="images/Counter Blue.png"
+      class="w-5 h-5 transition-all duration-300 ease-in-out"
+    />
+  </div>
+  <span class="icon-label text-[10px] text-white transition-all duration-300 ease-in-out">Counter</span>
+</a>
+<a class="flex flex-col items-center space-y-1 md:space-y-1 icon" href="Categories.html" data-icon="categories">
+  <div class="icon-wrapper flex items-center mt-[-10px] justify-center w-8 h-8 transition-all duration-300 ease-in-out">
+    <img
+      src="images/Categories.png"
+      data-white="images/Categories.png"
+      data-blue="images/Categories Blue.png"
+      class="w-5 h-5 transition-all duration-300 ease-in-out"
+    />
+  </div>
+  <span class="icon-label text-[10px] text-white transition-all duration-300 ease-in-out">Categories</span>
+</a>
+<a class="flex flex-col items-center space-y-1 md:space-y-1 icon" href="Student.html" data-icon="student">
+  <div class="icon-wrapper flex items-center mt-[-10px] justify-center w-8 h-8 transition-all duration-300 ease-in-out">
+    <img
+      src="images/Student.png"
+      data-white="images/Student.png"
+      data-blue="images/Student Blue.png"
+      class="w-5 h-5 transition-all duration-300 ease-in-out"
+    />
+  </div>
+  <span class="icon-label text-[10px] text-white transition-all duration-300 ease-in-out">Student</span>
+</a>
+<a class="flex flex-col items-center space-y-1 md:space-y-1 icon" href="User.html" data-icon="user">
+  <div class="icon-wrapper flex items-center mt-[-10px] justify-center w-8 h-8 transition-all duration-300 ease-in-out">
+    <img
+      src="images/User.png"
+      data-white="images/User.png"
+      data-blue="images/User Blue.png"
+      class="w-5 h-5 transition-all duration-300 ease-in-out"
+    />
+  </div>
+  <span class="icon-label text-[10px] text-white transition-all duration-300 ease-in-out">User</span>
+</a>
+<a class="flex flex-col items-center space-y-1 md:space-y-1 icon" href="Report.html" data-icon="report">
+  <div class="icon-wrapper flex items-center mt-[-10px] justify-center w-8 h-8 transition-all duration-300 ease-in-out">
+    <img
+      src="images/Report.png"
+      data-white="images/Report.png"
+      data-blue="images/Report Blue.png"
+      class="w-5 h-5 transition-all duration-300 ease-in-out"
+    />
+  </div>
+  <span class="icon-label text-[10px] text-white transition-all duration-300 ease-in-out">Report</span>
+</a>
+<a class="flex flex-col items-center space-y-1 md:space-y-1 icon" href="Links.html" data-icon="links">
+  <div class="icon-wrapper flex items-center mt-[-10px] justify-center w-8 h-8 transition-all duration-300 ease-in-out">
+    <img
+      src="images/Links.png"
+      data-white="images/Links.png"
+      data-blue="images/Links Blue.png"
+      class="w-5 h-5 transition-all duration-300 ease-in-out"
+    />
+  </div>
+  <span class="icon-label text-[10px] text-white transition-all duration-300 ease-in-out">Links</span>
+</a>
+<a class="flex flex-col items-center space-y-1 md:space-y-1 icon" href="Settings.html" data-icon="settings">
+  <div class="icon-wrapper flex items-center mt-[-10px] justify-center w-8 h-8 transition-all duration-300 ease-in-out">
+    <img
+      src="images/Settings.png"
+      data-white="images/Settings.png"
+      data-blue="images/Settings Blue.png"
+      class="w-5 h-5 transition-all duration-300 ease-in-out"
+    />
+  </div>
+  <span class="icon-label text-[10px] text-white transition-all duration-300 ease-in-out">Settings</span>
+</a> 
+      </nav>
+      <button aria-label="Feedback" class="mt-auto rounded-full p-3 hover:shadow-xl transition-shadow mx-auto md:mx-0 h">
+        <img alt="Thumbs up icon" class="w-9 h-9 mt-[-10px]" src="images/Comment.png"/>
+      </button>
+    </aside>
+    <!-- Overlay for mobile sidebar -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden md:hidden" id="overlay"></div>
+    <!-- Main content -->
+    <main class="flex-1 flex flex-col overflow-auto">
+      <!-- Header for desktop -->
+      <header class="hidden md:flex justify-between items-center px-10 py-4 border-b border-gray-300">
+        <div></div>
+        <div class="relative">
+  <button id="profileDropdownBtn" class="flex items-center space-x-3 text-[#15294B] text-sm font-normal focus:outline-none">
+    <img alt="Profile icon round photo" class="w-10 h-10 rounded-full object-cover cursor-pointer" height="40" src="images/Profile.png" width="40"/>
+  </button>
+ <div id="profileDropdown" class="absolute right-0 mt-2 w-52 bg-[#ebf0f2] rounded-lg shadow-lg border border-gray-200 hidden z-50 transition-all duration-300">
+  <ul class="py-2 text-sm text-[#1f365f]">
+    <li>
+      <a href="#" class="dropdown-item flex items-center gap-3 px-4 py-2 hover:bg-white transition-colors duration-200 w-[190px] rounded-lg ml-[8px]">
+        <img src="images/Profile.png" alt="View Profile" class="w-5 h-5" />
+        View Profile
+      </a>
+    </li>
+    <li>
+      <a href="#" class="dropdown-item flex items-center gap-3 px-4 py-2 hover:bg-white transition-colors duration-200 w-[190px] rounded-lg ml-[8px]">
+        <img src="images/Change Password.png" alt="Change Password" class="w-5 h-5" />
+        Change Password
+      </a>
+    </li>
+    <li>
+  <a href="#" class="dropdown-item flex items-center gap-3 px-4 py-2 transition-all duration-200 hover:bg-white hover:text-red-600 text-[#1f365f] w-[190px] rounded-lg ml-[8px]">
+    <img src="images/Logout.png" alt="Logout" class="w-5 h-5" />
+    Logout
+  </a>
+</li>
+  </ul>
+</div>
+      </header>
+     <section class="px-6 md:px-10 pt-10 mt-[-10px]">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-[#003968] text-3xl font-bold uppercase text-shadow select-none">
+      Student Management
+    </h1>
+
+    <!-- Add Button with Custom Icon -->
+    <button
+      type="button"
+      class="flex items-center space-x-2 border border-[#003968] rounded-md px-4 py-2 text-[#003968] font-normal text-xs"
+    >
+      <img src="images/Add.png" alt="Add Icon" class="w-4 h-4" />
+      <span>ADD</span>
+    </button>
+  </div>
+
+  <div class="flex justify-between items-center mb-4 flex-wrap gap-4">
+  <!-- Show dropdown -->
+  <div class="flex items-center space-x-2">
+    <label for="show" class="text-[#737373] font-normal select-none">Show</label>
+    <select
+      id="show"
+      name="show"
+      class="border border-gray-300 rounded-md px-3 py-1 text-[#737373] text-base focus:outline-none focus:ring-1 focus:ring-[#003968]"
+    >
+      <option>1</option>
+      <option>5</option>
+      <option>10</option>
+    </select>
+  </div>
+
+  <!-- Search bar with custom icon -->
+  <div class="relative w-56">
+    <input
+      type="search"
+      placeholder="Search"
+      class="w-full border border-gray-300 rounded-md pl-10 pr-4 py-2 text-gray-500 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#003968]"
+    />
+    <img
+      src="images/Search.png"
+      alt="Search Icon"
+      class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4"
+    />
+  </div>
+</div>
+</section>
+      <!-- Content area -->
+      <section class="flex-1 px-10 pb-20">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-[#031B44] text-white text-base font-normal select-none">
+              <th class="py-2 px-4 border border-[#031B44] text-center">Name</th>
+              <th class="py-2 px-4 border border-[#031B44] text-center">Email</th>
+              <th class="py-2 px-4 border border-[#031B44] text-center">
+                Student ID
+              </th>
+              <th class="py-2 px-4 border border-[#031B44] text-center">
+                Contact Number
+              </th>
+              <th class="py-2 px-4 border border-[#031B44] text-center">Created</th>
+              <th class="py-2 px-4 border border-[#031B44] text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody class="text-center text-gray-700 text-base font-normal">
+            <tr class="border border-gray-100">
+              <td class="py-3 px-4 border border-[#d9dfdb]"></td>
+              <td class="py-3 px-4 border border-[#d9dfdb]"></td>
+              <td class="py-3 px-4 border border-[#d9dfdb]"></td>
+              <td class="py-3 px-4 border border-[#d9dfdb]"></td>
+              <td class="py-3 px-4 border border-[#d9dfdb]"></td>
+              <td class="py-3 px-4 border border-[#d9dfdb] space-x-2">
+                <button aria-label="Edit" class="text-[#9E9E9E] hover:text-[#6B6B6B]">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button aria-label="Delete" class="text-[#9E9E9E] hover:text-[#6B6B6B]">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr class="border border-gray-100">
+               <td class="py-3 px-4 border border-[#d9dfdb]"></td>
+              <td class="py-3 px-4 border border-[#d9dfdb]"></td>
+              <td class="py-3 px-4 border border-[#d9dfdb]"></td>
+              <td class="py-3 px-4 border border-[#d9dfdb]"></td>
+              <td class="py-3 px-4 border border-[#d9dfdb]"></td>
+              <td class="py-3 px-4 border border-[#d9dfdb] space-x-2">
+                <button aria-label="Edit" class="text-[#9E9E9E] hover:text-[#6B6B6B]">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button aria-label="Delete" class="text-[#9E9E9E] hover:text-[#6B6B6B]">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          class="mt-8 flex flex-col items-center space-y-2 text-gray-600 text-sm font-normal select-none"
+        >
+          <span>Showing 1 of 1 entry</span>
+          <div class="space-x-2">
+            <button
+              type="button"
+              class="bg-[#031B44] text-white px-4 py-2 rounded-md"
+            >
+              PREVIOUS
+            </button>
+            <button
+              type="button"
+              disabled
+              class="bg-gray-300 text-gray-600 px-4 py-2 rounded-md cursor-default"
+            >
+              NEXT
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+  const icons = document.querySelectorAll('.icon');
+
+  icons.forEach(icon => {
+    const wrapper = icon.querySelector('.icon-wrapper');
+    const img = icon.querySelector('img');
+    const whiteIcon = img.dataset.white;
+    const blueIcon = img.dataset.blue;
+
+    // Initialize to white
+    img.src = whiteIcon;
+
+    // When page loads, auto-highlight current page
+  const currentPath = window.location.pathname.split('/').pop();
+  const href = icon.getAttribute('href');
+  if (href === currentPath) {
+    wrapper.classList.add('bg-white', 'rounded-lg', 'shadow-md', 'scale-110');
+    img.src = blueIcon;
+  }
+
+    icon.addEventListener('click', () => {
+    // Reset all icons
+    icons.forEach(i => {
+      const w = i.querySelector('.icon-wrapper');
+      const im = i.querySelector('img');
+      w.classList.remove('bg-white', 'rounded-lg', 'shadow-md', 'scale-110');
+      im.src = im.dataset.white;
+    });
+
+wrapper.classList.add('bg-white', 'rounded-lg', 'shadow-md', 'scale-110');
+    img.src = blueIcon;
+
+
+      // Set active
+      wrapper.classList.add('bg-white', 'rounded-lg', 'shadow-md', 'scale-110');
+      img.src = blueIcon;
+      activeIcon = icon;
+    });
+
+    // Handle hover out
+    icon.addEventListener('mouseleave', () => {
+      if (activeIcon !== icon) {
+        img.src = whiteIcon;
+      }
+    });
+  });
+  const profileBtn = document.getElementById('profileDropdownBtn');
+  const dropdown = document.getElementById('profileDropdown');
+
+  profileBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('hidden');
+  });
+
+  // Close dropdown on outside click
+  document.addEventListener('click', (e) => {
+    if (!dropdown.classList.contains('hidden')) {
+      dropdown.classList.add('hidden');
+    }
+  });
+
+  // Animation on click (white box background)
+  document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', function () {
+      // Remove active from all
+      document.querySelectorAll('.dropdown-item').forEach(i => {
+        i.classList.remove('bg-white');
+      });
+      // Add active to clicked
+      this.classList.add('bg-white');
+    });
+  });
+</script>
+</body>
+</html>

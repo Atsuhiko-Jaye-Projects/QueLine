@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Queuing Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="containers">
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="logo-container">
+                <img src="images/Logo.png" alt="Logo">
+            </div>
+                <ul class="nav-item">
+                <li>
+                    <a href="home.html" class="icon-label">
+                        <div class="icon-box">
+                            <img src="images/Home.png" alt="Home" class="white">
+                            <img src="images/Home Blue.png" alt="Home" class="blue">
+                        </div>
+                        <span class="icon-text">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="queue.html" class="icon-label">
+                        <div class="icon-box">
+                            <img src="images/Queue.png" alt="Queue" class="white">
+                            <img src="images/Queue Blue.png" alt="Queue" class="blue">
+                        </div>
+                        <span class="icon-text">Queue</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="counter.html" class="icon-label">
+                        <div class="icon-box">
+                            <img src="images/Counter.png" alt="Counter" class="white">
+                            <img src="images/Counter Blue.png" alt="Counter" class="blue">
+                        </div>
+                        <span class="icon-text">Counter</span>
+                    </a>
+ </li>
+                <li>
+                    <a href="categories.html" class="icon-label">
+                        <div class="icon-box">
+                            <img src="images/Categories.png" alt="Categories" class="white">
+                            <img src="images/Categories Blue.png" alt="Categories" class="blue">
+                        </div>
+                        <span class="icon-text">Categories</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="student.html" class="icon-label">
+                        <div class="icon-box">
+                            <img src="images/Student.png" alt="Student" class="white">
+                            <img src="images/Student Blue.png" alt="Student" class="blue">
+                        </div>
+                        <span class="icon-text">Student</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html" class="icon-label">
+                        <div class="icon-box">
+                            <img src="images/User.png" alt="User" class="white">
+                            <img src="images/User Blue.png" alt="User" class="blue">
+                        </div>
+                        <span class="icon-text">User</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="report.html" class="icon-label">
+                        <div class="icon-box">
+                            <img src="images/Report.png" alt="Report" class="white">
+                            <img src="images/Report Blue.png" alt="Report" class="blue">
+                        </div>
+                        <span class="icon-text">Report</span>
+                    </a>
+                </li>
+                <li>
+<a href="links.html" class="icon-label">
+                        <div class="icon-box">
+                            <img src="images/Links.png" alt="Links" class="white">
+                            <img src="images/Links Blue.png" alt="Links" class="blue">
+                        </div>
+                        <span class="icon-text">Links</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html" class="icon-label">
+                        <div class="icon-box">
+                            <img src="images/Settings.png" alt="Settings" class="white">
+                            <img src="images/Settings Blue.png" alt="Settings" class="blue">
+                        </div>
+                        <span class="icon-text">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="feedback.html" class="icon-label">
+                        <div class="icon-box comment-icon">
+                            <img src="images/Comment.png" alt="Feedback" class="white">
+                            <img src="images/Comment Blue.png" alt="Feedback" class="blue">
+                        </div>
+                        <span class="icon-text">&nbsp;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+       <div class="profile-container">
+  <img src="images/Profile.png" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+  <div class="dropdown" id="profileDropdown">
+    <a href="#">
+      <img src="images/Profile.png" alt="View Profile" class="menu-icon">
+      View Profile
+    </a>
+    <a href="#">
+      <img src="images/Change Password.png" alt="Change Password" class="menu-icon">
+      Change Password
+    </a>
+    <a href="#" class="logout-link">
+  <img src="images/Logout.png" alt="Logout" class="menu-icon">
+  Logout
+</a>
+  </div>
+</div>
+<div class="line-horizontal"></div>
+    </div>  
+        <div class="main-content">
+        </div>
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById("profileDropdown");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+        
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-pic')) {
+                const dropdown = document.getElementById("profileDropdown");
+                if (dropdown && dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                }
+            }
+        }
+// Highlight current page in navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop().replace('.html', '');
+            const navItems = document.querySelectorAll('.icon-label');
+            
+            navItems.forEach(item => {
+                const href = item.getAttribute('href').replace('.html', '');
+                if (href === currentPage || (currentPage === '' && href === 'home')) {
+                    item.classList.add('active-nav');
+                    
+                    // Add animation to active icon
+                    const iconBox = item.querySelector('.icon-box');
+                    iconBox.style.animation = 'iconBounce 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+  
