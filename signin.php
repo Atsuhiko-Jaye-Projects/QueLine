@@ -40,17 +40,17 @@ if ($_POST) {
 		
 
 		if ($user->user_type=='Admin') {
-			header("Location:{$home_url}admin/index.php?action=login_success");
+			header("Location:{$home_url}users/admin/index.php?action=login_success");
 		}
 		else if($user->user_type=='department_head_cashier') {
-			header("Location:{$home_url}department/department_head/department_head_cashier/index.php?action=logged_in_success_DHCs");
+			header("Location:{$home_url}users/department_head_cashier/index.php?action=logged_in_success_DHCs");
 			exit;
     
 		}else if($user->user_type=='department_head_MIS') {
-			header("Location:{$home_url}/department/department_head/department_head_MIS/index.php?action=login_success");
+			header("Location:{$home_url}users/department/department_head/department_head_MIS/index.php?action=login_success");
 			
 		}else{
-			header("Location:{$home_url}student/index.php?action=login_success");
+			header("Location:{$home_url}users/student/index.php?action=login_success");
 		}
 
 	}else{
