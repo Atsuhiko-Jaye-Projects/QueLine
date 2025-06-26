@@ -18,7 +18,7 @@
   <span>Queue</span>
 </label>
 
-   <input type="radio" name="nav" id="counter" class="nav-radio" checked>
+   <input type="radio" name="nav" id="counter" class="nav-radio">
   <label for="counter" class="icon-label">
     <div class="icon-box">
       <img src="../../libs/images/Counter.png" alt="Home" class="white">
@@ -28,7 +28,7 @@
   </label>
 
     <input type="radio" name="nav" id="categories" class="nav-radio">
-<label for="categories" class="icon-label">
+    <label for="categories" class="icon-label">
   <div class="icon-box">
     <img src="../../libs/images/Categories.png" alt="Queue" class="white">
     <img src="../../libs/images/Categories Blue.png" alt="Queue" class="blue">
@@ -36,7 +36,7 @@
   <span>Categories</span>
 </label>
 
-<input type="radio" name="nav" id="student" class="nav-radio" checked>
+<input type="radio" name="nav" id="student" class="nav-radio" >
   <label for="student" class="icon-label">
     <div class="icon-box">
       <img src="../../libs/images/Student.png" alt="Home" class="white">
@@ -54,7 +54,7 @@
   <span>Categories</span>
 </label>
 
-<input type="radio" name="nav" id="report" class="nav-radio" checked>
+<input type="radio" name="nav" id="report" class="nav-radio">
   <label for="report" class="icon-label">
     <div class="icon-box">
       <img src="../../libs/images/Report.png" alt="Home" class="white">

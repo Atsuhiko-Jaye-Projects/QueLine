@@ -33,10 +33,10 @@ if ($_POST) {
 	$email_address_exists = $user->emailExists();
 
 	if ($email_address_exists) {
+		echo "<div class='forgot-alert-message-info'>";
+			echo "We've sent and reset link to your Email.";
+		echo "</div>";
 		$sender->sendResetPassword($user->email, $user->lastname, $token);
-		// echo "<div class='forgot-alert-message-info'>";
-		// 	echo "We've sent and reset link to your Email.";
-		// echo "</div>";
 
 	}else{
 		echo "<div class='forgot-alert-message-error'>";
