@@ -82,6 +82,11 @@ if ($_POST) {
 			exit;		
 		
 		}
+		else if($user->user_type=='department_staff_registrar') {
+			header("Location:{$home_url}users/department_head/department_head_registrar/department_staff/index.php?action=login_success_DSR");
+			exit;		
+		
+		}
 
 
 
