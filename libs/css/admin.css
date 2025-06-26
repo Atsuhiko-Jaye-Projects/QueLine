@@ -88,13 +88,128 @@
     }
 
     .main-content {
-      margin-left: 200px;
-      padding: 50px;
+      margin-left: 100px;
+      padding: 30px;
     }
 
-    .sidebar img {
+.sidebar img {
   display: block;
   margin: 0 auto 20px; /* center and add space below */
   max-width: 50px;     /* limit logo width */
   height: auto; 
-    }  
+}  
+
+
+/* admin index page styling */
+
+.admin-header-container{
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.admin-header-container img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.admin-header{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-header-container{
+  
+}
+
+.admin-header-container .admin-header p{
+  margin: 0;
+  font-weight: bold;
+}
+
+.admin-content-container .admin-content-title h1{
+  color: #003968;
+}
+
+.admin-content-container .content-data-container{
+  background: #EBF0F2;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  border-radius: 5px;
+}
+
+.admin-content-container .content-data-container input[type="date"]{
+  width: 10%;
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #003968;
+}
+
+.admin-content-container .graph-data-container{
+  margin-top: 20px;
+  display: flex;
+  border: 1px solid black;
+  flex-direction: column
+}
+
+.admin-content-container .graph-data-container canvas{
+    width: 100% !important;
+    height: auto !important;
+}
+
+.admin-content-container .graph-data-container h2{
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.graph-data-container {
+    background: white;
+    padding: 10px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.chart-legend li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.legends{
+  border: 1px solid red;
+  align-items: center;
+}
+
+.graph-data-container .chart-legend{
+  list-style: none;
+
+  display: flex;
+  text-align: center;
+  gap: 10px;
+}
+.graph-data-container .chart-legend span{
+  display: inline-block;
+  text-align: center;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+
+
+
+
+
+
+
