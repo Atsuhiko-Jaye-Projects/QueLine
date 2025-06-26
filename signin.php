@@ -37,7 +37,7 @@ if ($_POST) {
 		
 
 		if ($user->user_type=='Admin') {
-			header("Location:{$home_url}admin/index.php?action=login_success");
+			header("Location:{$home_url}users/admin/index.php?action=login_success");
 		}
 		else if($user->user_type=='department_head_cashier') {
 			header("Location:{$home_url}users/department_head/department_head_cashier/index.php?action=logged_in_success_DHCs");
@@ -55,9 +55,39 @@ if ($_POST) {
 		
 		}
 
+		else if($user->user_type=='department_head_registrar') {
+			header("Location:{$home_url}users/department_head/department_head_admission/index.php?action=login_success_DHR");
+			exit;		
+		
+		}
+		else if($user->user_type=='department_staff_cashier') {
+			header("Location:{$home_url}users/department_head/department_head_cashier/department_staff/index.php?action=login_success_DSC");
+			exit;		
+		
+		}
+		else if($user->user_type=='department_staff_admission') {
+			header("Location:{$home_url}users/department_head/department_head_admission/department_staff/index.php?action=login_success_DSA");
+			exit;		
+		
+		}
+
+		else if($user->user_type=='department_staff_MIS') {
+			header("Location:{$home_url}users/department_head/department_head_MIS/department_staff/index.php?action=login_success_DSM");
+			exit;		
+		
+		}
+
+		else if($user->user_type=='department_staff_registrar') {
+			header("Location:{$home_url}users/department_head/department_head_registrar/department_staff/index.php?action=login_success_DSR");
+			exit;		
+		
+		}
+
+
+
 
 		else{
-			header("Location:{$home_url}student/index.php?action=login_success");
+			header("Location:{$home_url}users/student/index.php?action=LSS");
 		}
 
 	}else{
