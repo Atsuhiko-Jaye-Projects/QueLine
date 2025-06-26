@@ -44,11 +44,64 @@ if ($_POST) {
 			header("Location:{$home_url}users/department_head/department_head_cashier/index.php?action=logged_in_success_DHCs");
 			exit;
     
+<<<<<<< HEAD
 		}else if($user->user_type=='department_head_MIS') {
 			header("Location:{$home_url}/department/department_head/department_head_MIS/index.php?action=login_success");
 			
 		}else{
 			header("Location:{$home_url}student/index.php?action=login_success");
+=======
+		}
+		else if($user->user_type=='department_head_MIS') {
+			header("Location:{$home_url}users/department_head/department_head_MIS/index.php?action=login_success_DHM");
+			exit;		
+		
+		}
+		else if($user->user_type=='department_head_admission') {
+			header("Location:{$home_url}users/department_head/department_head_admission/index.php?action=login_success_DHA");
+			exit;		
+		
+		}
+
+		else if($user->user_type=='department_head_registrar') {
+			header("Location:{$home_url}users/department_head/department_head_admission/index.php?action=login_success_DHR");
+			exit;		
+		
+		}
+		else if($user->user_type=='department_staff_cashier') {
+			header("Location:{$home_url}users/department_head/department_head_cashier/department_staff/index.php?action=login_success_DSC");
+			exit;		
+		
+		}
+		else if($user->user_type=='department_staff_admission') {
+			header("Location:{$home_url}users/department_head/department_head_admission/department_staff/index.php?action=login_success_DSA");
+			exit;		
+		
+		}
+
+		else if($user->user_type=='department_staff_MIS') {
+			header("Location:{$home_url}users/department_head/department_head_MIS/department_staff/index.php?action=login_success_DSM");
+			exit;		
+		
+		}
+
+		else if($user->user_type=='department_staff_registrar') {
+			header("Location:{$home_url}users/department_head/department_head_registrar/department_staff/index.php?action=login_success_DSR");
+			exit;		
+		
+		}
+		else if($user->user_type=='department_staff_registrar') {
+			header("Location:{$home_url}users/department_head/department_head_registrar/department_staff/index.php?action=login_success_DSR");
+			exit;		
+		
+		}
+
+
+
+
+		else{
+			header("Location:{$home_url}users/student/index.php?action=LSS");
+>>>>>>> ver12
 		}
 
 	}else{
