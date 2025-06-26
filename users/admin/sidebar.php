@@ -7,7 +7,7 @@
       </div>
       <span class="icon-label text-[10px]">Home</span>
     </a>
-    <a class="flex flex-col items-center space-y-1 icon" href="Queue.html" data-icon="Queue">
+    <a class="flex flex-col items-center space-y-1 icon" href="queue_control.php" data-icon="Queue">
       <div class="icon-wrapper flex items-center mt-[-10px] justify-center w-8 h-8">
         <img src="../../libs/images/Queue.png" data-white="../../libs/images/Queue.png" data-blue="../../libs/images/Queue Blue.png" class="w-5 h-5" />
       </div>

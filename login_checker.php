@@ -6,9 +6,8 @@ $current_url = $_SERVER['REQUEST_URI']; // e.g., /admin/index.php
 if (isset($_SESSION['logged_in'], $_SESSION['user_type']) &&
     $_SESSION['logged_in'] === true &&
     $_SESSION['user_type'] == "Admin" &&
-    strpos($current_url, 'admin/index.php') === false) {
-
-    header("Location: {$home_url}admin/index.php?action=logged_in_as_admin");
+    strpos($current_url, 'admin/index.php') === true) {
+    header("Location: {$home_url}users/admin/index.php?action=logged_in_as_admin");
     exit();
 }
 
