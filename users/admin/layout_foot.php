@@ -1,3 +1,9 @@
+
+   </main>
+  </div>
+  </body>
+</html>
+<script src="../../libs/js/utils.js"></script>
 <script>
 // const urlParams = new URLSearchParams(window.location.search);
 // const dateFromURL = urlParams.get('date');
@@ -59,10 +65,6 @@ const barColors = [
       legendContainer.appendChild(li);
     });
 </script>
-</div>
-</div>
-</body>
-</html>
 
 
 
