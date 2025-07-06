@@ -229,18 +229,21 @@ class User {
     function updatePassword() {
         $query = "UPDATE " . $this->table_name . " 
                 SET 
-                password=:password
+                password=:password,
+                reset_password_attempt = :reset_password_attempt
                 WHERE id = :id";
 
         $stmt = $this->conn->prepare($query);
 
         //sanitize the inputs
+        $this->reset_password_attempt = htmlspecialchars(strip_tags($this->reset_password_attempt));
         $this->password = htmlspecialchars(strip_tags($this->password));
 
         // hash the password before saving it
         $password_hash = password_hash($this->password, PASSWORD_BCRYPT);
 
         $stmt->bindParam(':password', $password_hash);
+        $stmt->bindParam(':reset_password_attempt', $this->reset_password_attempt);
         $stmt->bindParam(':id', $this->id);
         
         return $stmt->execute();

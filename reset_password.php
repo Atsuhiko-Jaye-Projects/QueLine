@@ -46,6 +46,10 @@ if ($_POST) {
 	}
 
 	if ($access_token_exists) {
+
+		$RPA_count = 0;
+		$user->reset_password_attempt = $RPA_count;
+		
 		$user->updatePassword();
 		echo "<div class='forgot-alert-message-info'>";
 			echo "Your password has been changed.";
