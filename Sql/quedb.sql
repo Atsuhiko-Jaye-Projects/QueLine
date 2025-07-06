@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2025 at 07:10 AM
+-- Generation Time: Jul 06, 2025 at 12:26 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -330,16 +330,17 @@ CREATE TABLE `users` (
   `status` tinyint(1) DEFAULT 1,
   `profile_photo` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `access_code` varchar(255) NOT NULL
+  `access_code` varchar(255) NOT NULL,
+  `reset_password_attempt` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `counter_id`, `department_id`, `lastname`, `firstname`, `user_type`, `username`, `password`, `contact_number`, `email`, `address`, `status`, `profile_photo`, `created_at`, `access_code`) VALUES
-(1, 1, 1, 'uchiha', 'sarada', 'dept_staff_cashier', 'sarada@konoha.com', '$2a$12$afqVNeqI4CfcoZ9dyt9gIO7w6RKh.leuIB8dyv0YRESO3dgdzIcwe', '09533307696', '', 'konoha number 40', 1, NULL, '2025-06-20 10:10:26', ''),
-(19, NULL, NULL, 'gascon', '', NULL, NULL, '', '09533307692', 'ajcodalify@gmail.com', NULL, 1, NULL, '2025-06-24 23:25:30', 'UsQhGEdx1Cx22w0n8dWSSsuYUsht9EWj');
+INSERT INTO `users` (`id`, `counter_id`, `department_id`, `lastname`, `firstname`, `user_type`, `username`, `password`, `contact_number`, `email`, `address`, `status`, `profile_photo`, `created_at`, `access_code`, `reset_password_attempt`) VALUES
+(1, 1, 1, 'uchiha', 'sarada', 'Admin', 'sarada@konoha.com', '$2a$12$afqVNeqI4CfcoZ9dyt9gIO7w6RKh.leuIB8dyv0YRESO3dgdzIcwe', '09533307696', 'department_head_cashier', 'konoha number 40', 1, NULL, '2025-06-20 10:10:26', '', 0),
+(19, NULL, NULL, 'De Leon', 'Alexis', NULL, 'ajcodalify@gmail.com', '$2y$10$QqVS3a4caEhXOU5X7dTQE.fkPEpJsnpu5EzTXfAKjsV90AIipV79y', '09533307692', 'ajcodalify@gmail.com', NULL, 1, NULL, '2025-06-24 23:25:30', 'IZqC2Cl8lzAwTt7AgE4SEnEYhjhaxdYk', 1);
 
 --
 -- Indexes for dumped tables

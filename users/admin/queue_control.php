@@ -1,7 +1,7 @@
 <?php
 include_once "../../config/core.php";
 
-$page_title = "Queue_Control";
+$page_title = "Queue Control";
 include_once "layout_head.php";
 
 

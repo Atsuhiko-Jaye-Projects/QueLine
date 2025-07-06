@@ -25,7 +25,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="dropdown-item flex items-center gap-3 px-4 py-2 transition-all duration-200 hover:bg-white hover:text-red-600 text-[#1f365f] w-[190px] rounded-lg ml-[8px]">
+          <a href="../../logout.php" class="dropdown-item flex items-center gap-3 px-4 py-2 transition-all duration-200 hover:bg-white hover:text-red-600 text-[#1f365f] w-[190px] rounded-lg ml-[8px]">
             <img src="../../libs/images/Logout.png" alt="Logout" class="w-5 h-5" />
             Logout
           </a>

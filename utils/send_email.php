@@ -31,13 +31,12 @@ class Sender{
     $this->mail->isHTML(true);
   }
 
-  function sendResetPassword($email, $lastname, $token){
+  function sendResetPassword($email, $lastname, $id, $token){
     try {
       //Content
       $this->mail->isHTML(true);   
       $this->mail->Subject = 'ICC Password Reset Instructions'; //Set email format to HTML
-      $token = bin2hex(random_bytes(16)); // Secure reset token
-      $link = "http://localhost/queline/reset_password.php?action=reset&token={$token}";
+      $link = "http://localhost/queline/reset_password.php?id={$id}action=reset_password&token={$token}";
 
       $this->mail->setFrom($this->mail->Username, 'OQMC Support');
       $this->mail->addAddress($email, $lastname);
@@ -48,9 +47,35 @@ class Sender{
 
       $this->mail->Body= $body;
       if ($this->mail->send()) {
-        echo "<div class='forgot-alert-message-info'>";
-          echo "We've emailed you a link to reset your password. If it doesn't arrive soon, check your spam folder.";
-		    echo "</div>";
+        // echo "<div class='forgot-alert-message-info'>";
+        //   echo "We've emailed you a link to reset your password. If it doesn't arrive soon, check your spam folder.";
+		    // echo "</div>";
+    }
+
+    } catch (Exception $e) {
+       echo "❌ Failed to send email. Error: {$this->mail->ErrorInfo}";
+    }
+  }
+
+  function notifyPasswordChange($email, $firstname, $lastname){
+    try {
+      //Content
+      $this->mail->isHTML(true);   
+      $this->mail->Subject = 'ICC Password Changed Notification'; //Set email format to HTML
+        
+
+      $this->mail->setFrom($this->mail->Username, 'OQMC Support');
+      $this->mail->addAddress($email);
+
+      ob_start();
+      include "email_templates/password_changed_email.php";
+      $body = ob_get_clean();
+
+      $this->mail->Body= $body;
+      if ($this->mail->send()) {
+        // echo "<div class='forgot-alert-message-info'>";
+        //   echo "We've emailed you a link to reset your password. If it doesn't arrive soon, check your spam folder.";
+		    // echo "</div>";
     }
 
     } catch (Exception $e) {

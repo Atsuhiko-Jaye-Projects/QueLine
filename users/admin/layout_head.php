@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Queuing Management System</title>
+  <title><?php echo $page_title;?> - Queuing Management System</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="../../libs/css/admin.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -25,7 +25,7 @@
        <main class="flex-1 flex flex-col overflow-auto">
         <?php include_once "templates/header.php"; ?>
         <section class="px-6 md:px-10 pt-10 mt-[-10px]">
-          <h1 class="text-[#0D3B66] text-3xl font-bold uppercase text-shadow select-none">Dashboard</h1>
+          <h1 class="text-[#0D3B66] text-3xl font-bold uppercase text-shadow select-none"><?php echo $page_title; ?></h1>
         </section>
         
 

@@ -13,8 +13,10 @@ class User {
     public $contact_number;
     public $email;
     public $role;
+    public $access_code;
     public $user_type;
     public $address;
+    public $reset_password_attempt;
     public $status;
 
     public function __construct($db) {
@@ -146,7 +148,104 @@ class User {
         else{
             return false;
         }
-
     }
+
+    function insertToken(){
+                $query = "UPDATE 
+            " . $this->table_name . " 
+            SET
+            access_code=:access_code
+            WHERE 
+            email = :email";
+
+            $stmt = $this->conn->prepare($query);
+
+            $this->email = htmlspecialchars(strip_tags($this->email));
+            $this->access_code = htmlspecialchars(strip_tags($this->access_code));
+
+            $stmt->bindParam(':email', $this->email);
+            $stmt->bindParam(':access_code', $this->access_code);
+
+        if ($stmt->execute()) {
+           return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    function resetPasswordCount(){
+
+        $query = "SELECT id, reset_password_attempt FROM " . $this->table_name . " WHERE email = ? LIMIT 1";
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $stmt->bindParam(1, $this->email);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $row['reset_password_attempt'];
+        } else {
+            return false;
+        }
+    }
+
+    function incrementResetAttempt() {
+        $query = "UPDATE " . $this->table_name . " 
+                SET reset_password_attempt = reset_password_attempt + 1 
+                WHERE email = :email";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':email', $this->email);
+        $stmt->execute();
+    }
+
+    function accessCodeExists() {
+        $query = "SELECT id, access_code, email, firstname, lastname
+                  FROM " . $this->table_name . "
+                  WHERE access_code = ? AND id = ?";
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->access_code = htmlspecialchars(strip_tags($this->access_code));
+        $this->id =  htmlspecialchars(strip_tags($this->id));
+
+        $stmt->bindParam(1, $this->access_code);
+        $stmt->bindParam(2, $this->id);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $this->email  = $row['email'];
+            $this->firstname  = $row['firstname'];
+            $this->lastname  = $row['lastname'];
+            return true;
+        }
+        return false;
+    }
+
+    function updatePassword() {
+        $query = "UPDATE " . $this->table_name . " 
+                SET 
+                password=:password
+                WHERE id = :id";
+
+        $stmt = $this->conn->prepare($query);
+
+        //sanitize the inputs
+        $this->password = htmlspecialchars(strip_tags($this->password));
+
+        // hash the password before saving it
+        $password_hash = password_hash($this->password, PASSWORD_BCRYPT);
+
+        $stmt->bindParam(':password', $password_hash);
+        $stmt->bindParam(':id', $this->id);
+        
+        return $stmt->execute();
+    }
+
+
 }
 ?>

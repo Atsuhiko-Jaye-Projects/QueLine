@@ -24,7 +24,7 @@ if ($_POST) {
 	$sender = new Sender();
 	$utils = new Utils();
 
-	$token = $utils->getToken();
+
 
 	//check if contact number and password is in the database.
 
@@ -33,10 +33,25 @@ if ($_POST) {
 	$email_address_exists = $user->emailExists();
 
 	if ($email_address_exists) {
-		echo "<div class='forgot-alert-message-info'>";
-			echo "We've sent and reset link to your Email.";
-		echo "</div>";
-		$sender->sendResetPassword($user->email, $user->lastname, $token);
+
+		$password_attempt = $user->resetPasswordCount();
+		if ($password_attempt !== false && $password_attempt < 3) {
+				$token = $utils->getToken();
+			echo "<div class='forgot-alert-message-info'>";
+				echo "We've sent and reset link to your Email.";
+			echo "</div>";
+
+			$id = $user->id;
+			$sender->sendResetPassword($user->email, $user->lastname, $id, $token);
+			$user->access_code = $token;
+			$user->insertToken();
+
+			$user->incrementResetAttempt();
+		}else{
+			echo "<div class='forgot-alert-message-error'>";
+				echo "You've reached the maximum attempt today, please try again after 24hrs.";
+			echo "</div>";
+		}
 
 	}else{
 		echo "<div class='forgot-alert-message-error'>";
@@ -49,8 +64,6 @@ if ($_POST) {
 
 <!-- include the alert message  -->
 <?php include_once 'alert_message.php'; ?>
-
-
 
 <div class="fp-header">
 	<img src="libs/images/Logo.png" alt="Logo">
