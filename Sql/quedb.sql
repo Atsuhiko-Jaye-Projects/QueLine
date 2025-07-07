@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2025 at 12:26 PM
+-- Generation Time: Jul 07, 2025 at 06:26 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -340,7 +340,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `counter_id`, `department_id`, `lastname`, `firstname`, `user_type`, `username`, `password`, `contact_number`, `email`, `address`, `status`, `profile_photo`, `created_at`, `access_code`, `reset_password_attempt`) VALUES
 (1, 1, 1, 'uchiha', 'sarada', 'Admin', 'sarada@konoha.com', '$2a$12$afqVNeqI4CfcoZ9dyt9gIO7w6RKh.leuIB8dyv0YRESO3dgdzIcwe', '09533307696', 'department_head_cashier', 'konoha number 40', 1, NULL, '2025-06-20 10:10:26', '', 0),
-(19, NULL, NULL, 'De Leon', 'Alexis', NULL, 'ajcodalify@gmail.com', '$2y$10$QqVS3a4caEhXOU5X7dTQE.fkPEpJsnpu5EzTXfAKjsV90AIipV79y', '09533307692', 'ajcodalify@gmail.com', NULL, 1, NULL, '2025-06-24 23:25:30', 'IZqC2Cl8lzAwTt7AgE4SEnEYhjhaxdYk', 1);
+(19, NULL, NULL, 'De Leon', 'Alexis', 'Student', 'ajcodalify@gmail.com', '$2y$10$nrqeXjU9TjtQ8dtfYInq1u9/qaof86TXcyXWGFjiE8uFs71KcNdeu', '09533307692', 'ajcodalify@gmail.com', NULL, 1, NULL, '2025-06-24 23:25:30', 'oWoaREbnHzqOQKwIJajfrvcewyfiBPDi', 0);
 
 --
 -- Indexes for dumped tables

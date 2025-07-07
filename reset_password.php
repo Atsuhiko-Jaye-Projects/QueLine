@@ -1,10 +1,9 @@
 <?php
-
 $id = isset($_GET['id']) ? $_GET['id']: die ("ERROR missing id");
 $reset_password_token = isset($_GET['token']) ? $_GET['token']: die ("ERROR: missing invalid token"); 
 
 include_once "config/core.php";
-$page_title = "QQMS-Forgot Password";
+$page_title = "QQMS-Reset Password";
 include_once "layout_head.php";
 
 include_once "login_checker.php";
@@ -12,7 +11,6 @@ $require_login=false;
 
 // default to false
 $access_denied=false;
-
 
 if ($_POST) {
 	include_once 'config/database.php';
@@ -27,7 +25,6 @@ if ($_POST) {
 	$sender = new Sender();
 	$utils = new Utils();
 
-
 	$user->id= $id;
 	$user->access_code = $reset_password_token;
 
@@ -38,7 +35,6 @@ if ($_POST) {
 	$user->password = $_POST['password'];
 	$confirm_password = $_POST['confirm_password'];
 
-
 	if ($user->password != $confirm_password) {
 		echo "<div class='forgot-alert-message-error'>";
 			echo "Passwords do not match. Please try again.";
@@ -46,7 +42,6 @@ if ($_POST) {
 	}
 
 	if ($access_token_exists) {
-
 		$RPA_count = 0;
 		$user->reset_password_attempt = $RPA_count;
 		
@@ -54,6 +49,7 @@ if ($_POST) {
 		echo "<div class='forgot-alert-message-info'>";
 			echo "Your password has been changed.";
 		echo "</div>";
+
 		$sender->notifyPasswordChange($user->email, $user->firstname, $user->lastname);
 		$user->access_code = $new_access_code;
 		$user->insertToken();
@@ -65,8 +61,7 @@ if ($_POST) {
 		echo "<div class='forgot-alert-message-error'>";
 			echo "Invalid access code or id";
 		echo "</div>";
-	} 
-
+	}
 }
 ?>
 
