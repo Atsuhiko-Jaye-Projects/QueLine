@@ -9,7 +9,7 @@
     <span>Home</span>
   </label>
 
-    <input type="radio" name="nav" id="queue" class="nav-radio">
+<input type="radio" name="nav" href="#" id="queue" class="nav-radio">
 <label for="queue" class="icon-label">
   <div class="icon-box">
     <img src="../../libs/images/Queue.png" alt="Queue" class="white">
@@ -81,15 +81,7 @@
   <span>Settings</span>
 </label>
 
-    <input type="radio" name="nav" id="comment" class="nav-radio">
-<label for="comment" class="icon-label">
-  <div class="icon-box">
-    <img src="../../libs/images/Comment.png" alt="Queue" class="white">
-    <img src="../../libs/images/Comment Blue.png" alt="Queue" class="blue">
-  </div>
-  <span>Comment</span>
-</label>
 
-  </div>
+</div>
   <div class="line">
-  </div>
+</div>

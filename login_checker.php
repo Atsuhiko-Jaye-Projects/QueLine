@@ -15,9 +15,9 @@ if (isset($_SESSION['logged_in'], $_SESSION['user_type']) &&
 else if (isset($_SESSION['logged_in'], $_SESSION['user_type']) &&
     $_SESSION['logged_in'] === true &&
     $_SESSION['user_type'] == "Student" &&
-    strpos($current_url, 'student/index.php') === false) {
+    strpos($current_url, 'student/index.php') === true) {
 
-    header("Location: {$home_url}student/index.php?action=logged_in_as_student");
+    header("Location: {$home_url}users/student/index.php?action=logged_in_as_student");
     exit();
 }
 
@@ -108,10 +108,5 @@ if (isset($require_login) && $require_login === true) {
         exit();
     }
 
-    // // Page-specific access check
-    // if (isset($isAccessible) && !$isAccessible) {
-    //     header("Location: {$home_url}user/index.php?action=access_denied");
-    //     exit();
-    // }
 }
 ?>
