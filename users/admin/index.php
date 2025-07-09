@@ -1,8 +1,6 @@
 <?php
 include_once "../../config/core.php";
 
-
-
 $require_login = true;
 include_once "../../login_checker.php";
 
@@ -13,8 +11,6 @@ include_once "layout_head.php";
 ?>
 
 <!-- all content are placed here -->
-
-<link rel="stylesheet" type="text/css" href="">
 
 <section class="flex flex-col md:flex-row gap-6 px-6 md:px-10 py-10 bg-[#E9F0F2] rounded-lg flex-grow overflow-auto h-[20px] w-[1200px] ml-[37px] mt-7">
     <!-- Left box with donut chart -->

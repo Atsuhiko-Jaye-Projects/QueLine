@@ -14,6 +14,8 @@ include_once "layout_head.php";
 
 
 
+
+
 <a href="../../logout.php">Logout</a>
 
 <?php include_once "layout_foot.php";?>
