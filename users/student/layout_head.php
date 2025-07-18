@@ -19,5 +19,8 @@
 </style>
 <div class="containers">
     <?php include_once "sidebar.php"; ?>
+    <div class="navbar-container">
+      
+    </div>
     <div class="main-content">
       <?php //include_once "templates/header.php"; ?>

@@ -10,31 +10,33 @@ include_once "../../login_checker.php";
 $page_title = "Student Index";
 include_once "layout_head.php";
 
+include_once "kiosk-alert.php";
+
 ?>
 
 
 <div class="dep-option-container">
     <div class="dep-option-contents">
         <div class="dep-option-header">
-            <h1>Departments</h1>
+            
         </div>
 
         <table class="booking-options">
         <tr>
             <td>
-                <a href=""><button>Registar</button></a>
-                <a href=""><button>MIS</button></a>
+                <a href="book_slot.php?department=Registar"><button>Registar</button></a>
+                <a href="book_slot.php?department=MIS"><button>MIS</button></a>
             </td>
         </tr>
             <tr>
             <td>
-                <a href=""><button>Cashier</button></a>
-                <a href=""><button>Admission</button></a>
+                <a href="book_slot.php?department=Cashier"><button>Cashier</button></a>
+                <a href="book_slot.php?department=Admission"><button>Admission</button></a>
             </td>
         </table>
     </div>
 </div>
 
-<a href="../../logout.php">Logout</a>
+
 
 <?php include_once "layout_foot.php";?>
