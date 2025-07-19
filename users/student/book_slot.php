@@ -13,38 +13,48 @@ include_once "layout_head.php";
 
 ?>
 
-<div class="booking-queue-container">
-    <div class="booking-queue-header">
-        <p>lorem ipsum</p>
-    </div>
+<main>
+  <p class="disclaimer" role="note">
+    Disclaimer: By using this kiosk, you agree to provide accurate information. Your queue numbers are for personal use only. Missed or skipped turns may require rebooking. All personal data is handled in compliance with the Data Privacy Act of 2012.
+  </p>
+  
+  <form aria-label="Queue registration form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'] . "?department={$department}"); ?>" method="POST">
+    <button type="button" class="btn-admission" aria-disabled="true" tabindex="-1"><?php echo $department; ?></button>
 
-    <div class="booking-queue-content">
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'] . "?department={$department}"); ?>" method="POST">
-            <table>
-                <tr>
-                    <td><input type="text" name="student_id" placeholder="Student ID" disabled></td>
-                </tr>
-                <tr>
-                    <td><input type="text" name="department" value="<?php echo $department; ?>" disabled></td>
-                    <td><input type="text" name="OTP" placeholder="OTP" maxlength=6></td>
-                    <td><button >Send OTP</button>
-                </tr>
-                <tr>
-                    <td><input type="text" name="department" value="<?php echo $_SESSION['firstname']; ?>" disabled></td>
-                    <td>
-                        <select name="" id="">
-                            <option value="">Document Processing</option>
-                        </select>
-                    </td>
-                </tr>
+    <select aria-label="Transaction type" name="transaction" required>
+      <option selected disabled value="">Transaction Type</option>
+      <option value="enrollment">Enrollment</option>
+      <option value="payment">Payment</option>
+      <option value="transcript-request">Transcript Request</option>
+      <option value="others">Others</option>
+    </select>
 
-                <tr>
-                    <td><button type="submit" id>Submit</button></td>
-                </tr>
-            </table>
-        </form>
-    </div>
-</div>
+    <input
+      type="text"
+      name="fullname"
+      placeholder="Enter your fullname"
+      autocomplete="name"
+      required
+      aria-required="true"
+      aria-describedby="fullname-desc"
+    />
+    <input
+      type="text"
+      name="studentid"
+      placeholder="Student ID/LRN"
+      inputmode="numeric"
+    />
+
+    <label class="checkbox-group" for="priority-checkbox">
+      <input type="checkbox" id="priority-checkbox" name="priority" />
+      Priority (Pregnant, PWD, or Senior Citizen)
+    </label>
+
+    <button type="submit" class="btn-print">
+      PRINT
+    </button>
+  </form>
+</main>
 
 
 

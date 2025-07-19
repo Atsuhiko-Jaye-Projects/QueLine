@@ -3,7 +3,9 @@
     <div class="logo-modal">
       <img src="../../libs/images/Logo.png">
     </div>
-    <div class="Header">Immaculada Concepcion College of Soldiers Hills Inc.</div>
+    <div class="Header">
+      <p>Immaculada Concepcion College of Soldiers Hills Inc.</p>
+    </div>
     <div class="content">
       Queue reservation is currently unavailable. 
       You may reserve queue number between 7:30 AM - 5:00 PM 
