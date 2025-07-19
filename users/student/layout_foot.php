@@ -15,21 +15,21 @@ function shouldShowModal() {
   const minutes = manilaTime.getMinutes();
 
   // Check for exactly 7:30 PM
-  if (hours === 19 && minutes === 08) {
-    return true;
-  }
+//   if (hours === 20 && minutes === 44) {
+//     return true;
+//   }
 
-  // Block showing modal from 7:31 PM to 1:00 AM
-  if (
-    (hours === 19 && minutes > 08) || // 7:31–7:59 PM
-    (hours >= 20 && hours <= 23) ||   // 8:00 PM – 11:59 PM
-    (hours === 0 && minutes <= 59) || // 12:00 AM – 12:59 AM
-    (hours === 1 && minutes === 0)    // exactly 1:00 AM
-  ) {
-    return false;
-  }
+//   // Block showing modal from 7:31 PM to 1:00 AM
+//   if (
+//     (hours === 20 && minutes > 38) || // 7:31–7:59 PM
+//     (hours >= 20 && hours <= 23) ||   // 8:00 PM – 11:59 PM
+//     (hours === 0 && minutes <= 59) || // 12:00 AM – 12:59 AM
+//     (hours === 1 && minutes === 0)    // exactly 1:00 AM
+//   ) {
+//     return false;
+//   }
 
-  // Show modal outside blocked time
+//   // Show modal outside blocked time
   return true;
 }
 
