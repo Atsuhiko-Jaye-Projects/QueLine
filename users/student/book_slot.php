@@ -1,12 +1,30 @@
 <?php
-$department = isset($_GET['department']) ? $_GET['department']: die ("ERROR: 404 Not Found");
+include_once "../../config/database.php";
+include_once "../../objects/transaction.php";
+
+$database = new Database();
+$db = $database->getConnection();
+
+$transaction = new Transaction ($db);
+
+$did = isset($_GET['did']) ? $_GET['did']: die ("ERROR: 404 Not Found");
 
 include_once "../../config/core.php";
 
 
+$department=null;
+if ($did==1) {
+  $department = "Cashier";
+}else if ($did==2) {
+  $department = "Admission";
+}else if ($did==3) {
+  $department= "MIS";
+}else if ($did==4){
+  $department= "Registrar";
+}else{
+  $department= "Department Not Available";
+}
 
-$require_login=true;
-include_once "../../login_checker.php";
 
 $page_title = $department;
 include_once "layout_head.php";
@@ -18,16 +36,19 @@ include_once "layout_head.php";
     Disclaimer: By using this kiosk, you agree to provide accurate information. Your queue numbers are for personal use only. Missed or skipped turns may require rebooking. All personal data is handled in compliance with the Data Privacy Act of 2012.
   </p>
   
-  <form aria-label="Queue registration form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'] . "?department={$department}"); ?>" method="POST">
-    <button type="button" class="btn-admission" aria-disabled="true" tabindex="-1"><?php echo $department; ?></button>
+  <form aria-label="Queue registration form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'] . "?did={$did}"); ?>" method="POST">
+    <button type="button" class="btn-admission" aria-disabled="true" tabindex="-1"><?php echo $page_title; ?></button>
 
-    <select aria-label="Transaction type" name="transaction" required>
-      <option selected disabled value="">Transaction Type</option>
-      <option value="enrollment">Enrollment</option>
-      <option value="payment">Payment</option>
-      <option value="transcript-request">Transcript Request</option>
-      <option value="others">Others</option>
-    </select>
+    <?php
+      $stmt = $transaction->read($did);
+      echo "<select aria-label='Transaction type' name='transaction_id' required>";
+        echo "<option value=''hidden>Transaction Type</option>";
+        while ($row_transaction = $stmt->fetch(PDO::FETCH_ASSOC)) {
+          extract($row_transaction);
+          echo "<option value={$id}>{$name}</option>";
+        }
+      echo "</select>";
+    ?>
 
     <input
       type="text"
@@ -49,11 +70,16 @@ include_once "layout_head.php";
       <input type="checkbox" id="priority-checkbox" name="priority" />
       Priority (Pregnant, PWD, or Senior Citizen)
     </label>
-
-    <button type="submit" class="btn-print">
-      PRINT
-    </button>
   </form>
+
+  <?php 
+
+
+      echo"<button id='showModalBtn' class='btn-print'>";
+          echo "Preview";
+      echo "</button>";
+        include_once "reciept_form.php";
+      ?>
 </main>
 
 

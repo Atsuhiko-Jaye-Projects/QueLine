@@ -46,8 +46,23 @@ checkModalDisplay();
 
 // Then check every minute
 setInterval(checkModalDisplay, 1000);
+
+
 </script>
 
+<script>
+  document.getElementById("showModalBtn").addEventListener("click", function () {
+  document.getElementById("receipt_modal").style.display = "flex";
+});
+
+  document.getElementById("returnBtn").addEventListener("click", function () {
+  document.getElementById("receipt_modal").style.display = "none";
+});
+
+document.getElementById("printBtn").addEventListener("click", function () {
+  window.print();
+});
+</script>
 
 
 

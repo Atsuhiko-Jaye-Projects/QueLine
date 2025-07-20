@@ -2,8 +2,7 @@
 include_once "../../config/core.php";
 
 
-$require_login=true;
-include_once "../../login_checker.php";
+
 
 
 
@@ -24,14 +23,14 @@ include_once "kiosk-alert.php";
         <table class="booking-options">
         <tr>
             <td>
-                <a href="book_slot.php?department=Registar"><button>Registar</button></a>
-                <a href="book_slot.php?department=MIS"><button>MIS</button></a>
+                <a href="book_slot.php?did=4"><button>Registar</button></a>
+                <a href="book_slot.php?did=3"><button>MIS</button></a>
             </td>
         </tr>
             <tr>
             <td>
-                <a href="book_slot.php?department=Cashier"><button>Cashier</button></a>
-                <a href="book_slot.php?department=Admission"><button>Admission</button></a>
+                <a href="book_slot.php?did=1"><button>Cashier</button></a>
+                <a href="book_slot.php?did=2"><button>Admission</button></a>
             </td>
         </table>
     </div>
